@@ -383,6 +383,99 @@ details.session-detail[open] summary::before{transform:rotate(90deg)}
 .channel .ttl .badge{display:inline-block;font-size:10px;background:#fcd34d;color:#0a3d62;padding:2px 7px;border-radius:10px;margin-left:6px;font-weight:800;letter-spacing:.3px}
 .channel .desc{font-size:12.5px;color:#cdd9e6;line-height:1.55}
 
+/* ANTRENOR PUANLAMA SAYFASI */
+.scoring-section{background:#fafbfc;padding:36px 16px;border-top:5px solid #16a34a}
+.scoring-section .wrap{max-width:1100px;margin:0 auto}
+.scoring-section h2{margin:0 0 8px;font-size:24px;font-weight:800;color:#0a3d62;letter-spacing:-.3px}
+.scoring-section .sub{font-size:14px;color:#5b6b80;margin:0 0 26px;line-height:1.6;max-width:820px}
+.scoring-section h3{font-size:17px;font-weight:700;color:#0a3d62;margin:28px 0 12px;border-bottom:2px solid #16a34a;padding-bottom:6px;display:inline-block}
+
+.flow-row{display:grid;grid-template-columns:1fr;gap:20px;margin:14px 0 24px;align-items:stretch}
+@media(min-width:680px){.flow-row{grid-template-columns:1fr 1fr;gap:14px}}
+@media(min-width:1100px){.flow-row{grid-template-columns:repeat(4,1fr);gap:10px}}
+.flow-col{display:flex;flex-direction:column;align-items:center}
+.flow-col .ekran-no{display:inline-block;background:#16a34a;color:#fff;font-weight:800;font-size:11px;padding:4px 12px;border-radius:14px;letter-spacing:.5px;margin-bottom:10px}
+.flow-col .ekran-ttl{font-size:13px;font-weight:700;color:#0a3d62;margin-bottom:10px;text-align:center}
+.flow-col .arrow{display:none;font-size:24px;color:#16a34a;align-self:center}
+@media(min-width:760px){.flow-col .arrow{display:block;position:absolute}}
+
+/* Antrenor mockup ekranlari (kucuk tutsun) */
+.scoring-section .phone-mockup{max-width:300px;margin:0 auto}
+.scoring-section .phone-screen{min-height:560px;padding:0;background:#fff;border-radius:24px;overflow:hidden}
+.scoring-section .phone-screen .app-header{margin:0;border-radius:0;padding:14px 14px 12px}
+.scoring-section .phone-screen .body{padding:12px 14px}
+
+.player-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 12px;background:#fafbfc;border:1px solid #e3e8ef;border-radius:8px;margin-bottom:6px;font-size:12.5px}
+.player-row.done{background:#f0fdf4;border-color:#16a34a}
+.player-row.absent{background:#f1f5f9;border-color:#cbd5e1;opacity:.7}
+.player-row .num-circle{width:28px;height:28px;border-radius:50%;background:#1e6091;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.player-row.done .num-circle{background:#16a34a}
+.player-row.absent .num-circle{background:#94a3b8}
+.player-row .name{font-weight:700;color:#1a2233;font-size:13px}
+.player-row .meta{font-size:11px;color:#5b6b80;margin-top:1px}
+.player-row .status{font-size:18px;color:#94a3b8}
+.player-row.done .status{color:#16a34a}
+
+.corner-rating{padding:14px 12px;background:#fafbfc;border-radius:10px;border:1px solid #e3e8ef;margin-bottom:8px}
+.corner-rating .corner-name{font-weight:700;font-size:13px;color:#0a3d62;margin-bottom:2px;display:flex;align-items:center;gap:6px}
+.corner-rating .corner-desc{font-size:10.5px;color:#5b6b80;margin-bottom:8px;line-height:1.3}
+.corner-rating .stars-tap{display:flex;gap:4px;justify-content:center}
+.corner-rating .stars-tap .s{width:36px;height:36px;border-radius:8px;background:#e3e8ef;display:flex;align-items:center;justify-content:center;font-size:18px;color:#94a3b8;font-weight:800;cursor:pointer}
+.corner-rating .stars-tap .s.filled{background:linear-gradient(135deg,#fcd34d,#f59e0b);color:#fff;box-shadow:0 2px 4px rgba(245,158,11,.3)}
+
+.scoring-progress{background:#0a3d62;color:#fff;padding:8px 14px;font-size:11.5px;display:flex;justify-content:space-between;align-items:center}
+.scoring-progress .bar{flex:1;margin:0 10px;height:6px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden}
+.scoring-progress .bar .fill{height:100%;background:#16a34a;border-radius:3px}
+
+.quick-note{background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:11.5px;color:#7c2d12}
+.quick-note .lbl{font-weight:700;font-size:10px;color:#92400e;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.quick-note .text{font-style:italic;line-height:1.4}
+
+.summary-stats{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 12px;margin:8px 0;font-size:12px}
+.summary-stats .stat{display:grid;grid-template-columns:auto 1fr;gap:6px;padding:5px 0;border-bottom:1px dashed #bae6fd;color:#1a2233}
+.summary-stats .stat:last-child{border-bottom:none}
+.summary-stats .ico{font-size:14px}
+.summary-stats .stat strong{color:#0a3d62}
+
+.action-btn{display:block;width:100%;padding:12px;border:none;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;text-align:center;letter-spacing:.3px;margin-top:8px}
+.action-btn.primary{background:#16a34a;color:#fff}
+.action-btn.secondary{background:#fff;color:#1e6091;border:2px solid #1e6091}
+.action-btn.skip{background:#fff;color:#5b6b80;border:1px solid #cbd5e1}
+
+.principles-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:12px 0}
+@media(min-width:720px){.principles-grid{grid-template-columns:1fr 1fr}}
+.principle-card{background:#fff;border:1px solid #e3e8ef;border-radius:10px;padding:14px 16px;border-left:4px solid #16a34a}
+.principle-card h4{margin:0 0 6px;font-size:13.5px;color:#0a3d62}
+.principle-card p{margin:0;font-size:12.5px;color:#3b4a5e;line-height:1.55}
+.principle-card .ico{font-size:20px;margin-right:6px;vertical-align:middle}
+
+.karne-bridge{background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:18px 20px;margin:14px 0 0;border-left:5px solid #fcd34d}
+.karne-bridge h4{margin:0 0 8px;color:#7c2d12;font-size:15px;font-weight:800}
+.karne-bridge p{margin:0 0 8px;font-size:13px;color:#1a2233;line-height:1.55}
+.karne-bridge .formula{background:rgba(255,255,255,.6);padding:10px 14px;border-radius:8px;font-size:12.5px;color:#0a3d62;font-family:Menlo,monospace;line-height:1.55;margin-top:8px}
+.karne-bridge .formula strong{color:#7c2d12}
+
+/* ATTENDANCE TOGGLE */
+.attendance-toggle{display:flex;gap:5px}
+.attendance-toggle .att-btn{padding:5px 9px;border-radius:14px;border:1px solid #cbd5e1;background:#fff;color:#5b6b80;cursor:pointer;font-weight:700;font-size:10.5px;line-height:1}
+.attendance-toggle .att-btn.yes.selected{background:#16a34a;color:#fff;border-color:#16a34a}
+.attendance-toggle .att-btn.no.selected{background:#dc2626;color:#fff;border-color:#dc2626}
+
+/* SMART SAFEGUARDS */
+.smart-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0 18px}
+@media(min-width:760px){.smart-grid{grid-template-columns:1fr 1fr}}
+.smart-card{background:#fff;border:1px solid #e3e8ef;border-radius:10px;padding:14px 16px;border-left:4px solid #7e22ce;display:flex;gap:14px;align-items:flex-start}
+.smart-card .icon{font-size:30px;flex-shrink:0;line-height:1}
+.smart-card .body{flex:1}
+.smart-card .ttl{font-weight:800;color:#0a3d62;font-size:14px;margin-bottom:4px}
+.smart-card .desc{font-size:12.5px;color:#3b4a5e;line-height:1.55}
+.smart-card .example{margin-top:8px;padding:7px 10px;background:#fef3c7;border-radius:4px;font-size:11.5px;color:#7c2d12;line-height:1.4;border-left:2px solid #fcd34d}
+.smart-card .example strong{color:#451a03;font-weight:700}
+.smart-card .tag-tech{display:inline-block;font-size:10px;background:#7e22ce;color:#fff;padding:2px 7px;border-radius:10px;margin-top:6px;letter-spacing:.4px;font-weight:700;text-transform:uppercase}
+
+/* DEVAMSIZ DROPDOWN */
+.absence-reason{display:block;width:100%;padding:5px 8px;font-size:10.5px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#5b6b80;margin-top:4px}
+
 /* FOOT */
 footer{background:#0a3d62;color:#cdd9e6;padding:30px 16px 40px;margin-top:40px;font-size:13px;line-height:1.6}
 footer h4{color:#fff;margin:0 0 8px;font-size:14px}
@@ -5891,6 +5984,498 @@ footer a{color:#7fb3d5}
     </div>
 
     <p style="margin-top:18px;font-size:11.5px;color:#cdd9e6;font-style:italic;text-align:center">📌 Bu sayfa <strong>UX/içerik mockup'ıdır</strong>. Gerçek WhatsApp API entegrasyonu, push notification altyapısı ve veritabanı bağlantısı asıl sunucuda yazılacak.</p>
+  </div>
+</section>
+
+<section class="scoring-section">
+  <div class="wrap">
+    <h2>⭐ Antrenman Sonrası Hızlı Puanlama (Antrenör Mockup)</h2>
+    <p class="sub">Antrenör <strong>sahadan çıkarken cebinden telefonu çıkarır, 30 saniyede her oyuncuyu puanlar, otomatik karneye yansır.</strong> Aşağıda gerçek ürünün 3 ekranlı UX akışı: takım listesi → tek oyuncu puanlama → bitirme özeti. <strong>4-corner × 5 yıldız = 20 büyük tap. Bitti.</strong></p>
+
+    <h3>📱 4 Ekranlı Tam Akış (Telefon-Öncelikli)</h3>
+    <p style="font-size:12.5px;color:#5b6b80;margin:0 0 14px;line-height:1.55">Yoklama → Liste → Tek oyuncu puanlama → Bitirme. Her ekran <strong>tek-elle</strong> kullanılır, telefon-öncelikli, offline çalışır.</p>
+
+    <div class="flow-row" style="margin-bottom:10px">
+
+      <div class="flow-col">
+        <span class="ekran-no" style="background:#7e22ce">EKRAN 0</span>
+        <div class="ekran-ttl">Yoklama (Sahaya Geliş)</div>
+
+        <div class="phone-mockup">
+          <div class="notch"></div>
+          <div class="phone-screen">
+            <div class="app-header" style="background:#7e22ce">
+              <div class="ttl">📋 Yoklama · U14 Sarı Aslanlar</div>
+              <div class="grp">Salı 4 Mart · 18:30 başlıyor</div>
+            </div>
+            <div class="scoring-progress" style="background:#5b21b6">
+              <span>Sahada:</span>
+              <div class="bar"><div class="fill" style="width:86%;background:#fbbf24"></div></div>
+              <strong>12/14</strong>
+            </div>
+            <div class="body">
+
+              <div style="background:#f0fdf4;border:1px dashed #16a34a;border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:11.5px;color:#14532d">
+                ✅ <strong>Otomatik:</strong> 8 oyuncu NFC kart ile kaydedildi.<br>
+                <span style="font-size:10.5px;color:#15803d">Saha girişinde turnike + uygulama eşleştirmesi</span>
+              </div>
+
+              <div class="player-row done">
+                <div class="num-circle">7</div>
+                <div>
+                  <div class="name">Ahmet Kaya</div>
+                  <div class="meta">⏱ 18:24 NFC</div>
+                </div>
+                <div class="attendance-toggle">
+                  <span class="att-btn yes selected">Sahada</span>
+                </div>
+              </div>
+
+              <div class="player-row done">
+                <div class="num-circle">9</div>
+                <div>
+                  <div class="name">Mehmet Sezer</div>
+                  <div class="meta">⏱ 18:27 NFC</div>
+                </div>
+                <div class="attendance-toggle">
+                  <span class="att-btn yes selected">Sahada</span>
+                </div>
+              </div>
+
+              <div class="player-row">
+                <div class="num-circle">12</div>
+                <div>
+                  <div class="name">Onur Bektaş</div>
+                  <div class="meta">⏱ Manuel — kart unutulmuş</div>
+                </div>
+                <div class="attendance-toggle">
+                  <span class="att-btn yes selected">Sahada</span>
+                  <span class="att-btn no">Yok</span>
+                </div>
+              </div>
+
+              <div class="player-row absent">
+                <div class="num-circle">8</div>
+                <div>
+                  <div class="name">Kerem Akın</div>
+                  <div class="meta">Devamsız</div>
+                  <select class="absence-reason"><option>Hastalık (veli bildirdi)</option></select>
+                </div>
+                <div class="attendance-toggle">
+                  <span class="att-btn no selected">Yok</span>
+                </div>
+              </div>
+
+              <div class="player-row absent">
+                <div class="num-circle">14</div>
+                <div>
+                  <div class="name">Furkan Yıldız</div>
+                  <div class="meta">Bilinmiyor</div>
+                  <select class="absence-reason"><option>Sebep belirtilmedi — veliye sor?</option></select>
+                </div>
+                <div class="attendance-toggle">
+                  <span class="att-btn no selected">Yok</span>
+                </div>
+              </div>
+
+              <button class="action-btn primary" style="background:#7e22ce">Yoklama Kapat → Antrenmana Başla</button>
+              <p style="text-align:center;font-size:10.5px;color:#5b6b80;margin:10px 0 0">⏰ 18:30'da otomatik kapanır · Sonradan ekleyebilirsin</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-col">
+        <span class="ekran-no">EKRAN 1</span>
+        <div class="ekran-ttl">Takım Listesi</div>
+
+        <div class="phone-mockup">
+          <div class="notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <div class="ttl">⚽ U14 · Sarı Aslanlar</div>
+              <div class="grp">Salı 4 Mart · 18:30-20:00 · Saha 2</div>
+            </div>
+            <div class="scoring-progress">
+              <span>Puanlama:</span>
+              <div class="bar"><div class="fill" style="width:25%"></div></div>
+              <strong>3/12</strong>
+            </div>
+            <div class="body">
+
+              <div class="player-row">
+                <div class="num-circle">7</div>
+                <div>
+                  <div class="name">Ahmet Kaya</div>
+                  <div class="meta">10 yaş · Sol kanat</div>
+                </div>
+                <div class="status">▶</div>
+              </div>
+
+              <div class="player-row">
+                <div class="num-circle">9</div>
+                <div>
+                  <div class="name">Mehmet Sezer</div>
+                  <div class="meta">11 yaş · Forvet</div>
+                </div>
+                <div class="status">▶</div>
+              </div>
+
+              <div class="player-row done">
+                <div class="num-circle">3</div>
+                <div>
+                  <div class="name">Ali Toprak</div>
+                  <div class="meta">10 yaş · Stoper · 4.0★</div>
+                </div>
+                <div class="status">✓</div>
+              </div>
+
+              <div class="player-row done">
+                <div class="num-circle">11</div>
+                <div>
+                  <div class="name">Burak Çelik</div>
+                  <div class="meta">11 yaş · Sol bek · 4.5★</div>
+                </div>
+                <div class="status">✓</div>
+              </div>
+
+              <div class="player-row done">
+                <div class="num-circle">5</div>
+                <div>
+                  <div class="name">Mert Önder</div>
+                  <div class="meta">10 yaş · Orta · 4.8★</div>
+                </div>
+                <div class="status">✓</div>
+              </div>
+
+              <div class="player-row absent">
+                <div class="num-circle">8</div>
+                <div>
+                  <div class="name">Kerem Akın</div>
+                  <div class="meta">11 yaş · Devamsız</div>
+                </div>
+                <div class="status">⊘</div>
+              </div>
+
+              <div class="player-row">
+                <div class="num-circle">4</div>
+                <div>
+                  <div class="name">Berk Demir</div>
+                  <div class="meta">10 yaş · Defansif orta</div>
+                </div>
+                <div class="status">▶</div>
+              </div>
+
+              <button class="action-btn primary">İlk Bekleyen → Ahmet K.</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-col">
+        <span class="ekran-no">EKRAN 2</span>
+        <div class="ekran-ttl">Tek Oyuncu — 4 Tap</div>
+
+        <div class="phone-mockup">
+          <div class="notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <div class="ttl">Ahmet Kaya · #7</div>
+              <div class="grp">Sol kanat · Hedef: 25 saniye ⏱</div>
+            </div>
+            <div class="body">
+
+              <div class="corner-rating">
+                <div class="corner-name">⚽ Teknik</div>
+                <div class="corner-desc">Pas, kontrol, top sürme</div>
+                <div class="stars-tap">
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s">★</div>
+                </div>
+              </div>
+
+              <div class="corner-rating">
+                <div class="corner-name">🏃 Fiziksel</div>
+                <div class="corner-desc">Çabukluk, dayanıklılık</div>
+                <div class="stars-tap">
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                </div>
+              </div>
+
+              <div class="corner-rating">
+                <div class="corner-name">🧠 Karar Verme</div>
+                <div class="corner-desc">1v1, oyun-içi seçim</div>
+                <div class="stars-tap">
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s">★</div>
+                  <div class="s">★</div>
+                </div>
+              </div>
+
+              <div class="corner-rating">
+                <div class="corner-name">👥 Takım Davranışı</div>
+                <div class="corner-desc">Pas tercihi, yardım</div>
+                <div class="stars-tap">
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s filled">★</div>
+                  <div class="s">★</div>
+                </div>
+              </div>
+
+              <div class="quick-note">
+                <div class="lbl">🎤 Hızlı not (sesle de)</div>
+                <div class="text">"Bugün 1v1'de cesur ama sol ayak hâlâ zayıf"</div>
+              </div>
+
+              <button class="action-btn primary">Sonraki Oyuncu → Mehmet S.</button>
+              <button class="action-btn skip">⏭ Atla (sonra)</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-col">
+        <span class="ekran-no">EKRAN 3</span>
+        <div class="ekran-ttl">Bitirme + Özet</div>
+
+        <div class="phone-mockup">
+          <div class="notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <div class="ttl">✅ Antrenman Tamam</div>
+              <div class="grp">11/12 puanlama · 23 dakika</div>
+            </div>
+            <div class="scoring-progress">
+              <span>Puanlama:</span>
+              <div class="bar"><div class="fill" style="width:100%"></div></div>
+              <strong>11/11</strong>
+            </div>
+            <div class="body">
+
+              <div class="summary-stats">
+                <div class="stat"><span class="ico">🏆</span><span><strong>En yüksek:</strong> Mert Önder (4.8★ ortalama)</span></div>
+                <div class="stat"><span class="ico">📈</span><span><strong>Gelişen:</strong> Burak Ç. (önceki haftaya +0.6)</span></div>
+                <div class="stat"><span class="ico">⚠️</span><span><strong>Dikkat:</strong> Kaan B. (3 hafta düşüş)</span></div>
+                <div class="stat"><span class="ico">⊘</span><span><strong>Devamsız:</strong> Kerem A. (hastalık)</span></div>
+              </div>
+
+              <div class="quick-note">
+                <div class="lbl">📋 Antrenman Özeti</div>
+                <div class="text">Top sürme + 1v1 odaklı. Süresinde bitti, kimse sakatlanmadı. Burak'ın gelişimi takım moralini yükseltti.</div>
+              </div>
+
+              <button class="action-btn primary">📊 Karneye İşle (11 oyuncu)</button>
+              <button class="action-btn secondary">📝 Sonra Düzenle</button>
+
+              <p style="text-align:center;font-size:10.5px;color:#5b6b80;margin:10px 0 0">✨ Otomatik kaydedildi · Çevrimdışı çalışır</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>🎯 Sıcağı Sıcağına UX Prensipleri</h3>
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <h4><span class="ico">⏱️</span> 30 saniye / oyuncu hedefi</h4>
+        <p>4 corner × 5 yıldız = 20 büyük tap. Hızlı not opsiyonel (sesle de yapılabilir). 12 oyuncu × 30 sn = 6 dakikada bitiş.</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">👆</span> Tek-el kullanım</h4>
+        <p>Antrenör eşofman cebinden telefonu çıkarıp tek elle puanlar. Tap target'lar 36×36 px (yorgun-terli parmak için iri).</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">📡</span> Offline-first</h4>
+        <p>Sahada wifi yok. Telefonda biriken puanlar online olunca otomatik senkron olur. Veri kaybı sıfır.</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">💾</span> Otomatik kaydet</h4>
+        <p>Her tap anında kayıt. Telefon kapanırsa ya da uygulama crash olursa kaldığın yerden devam edersin.</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">🎤</span> Sesle hızlı not</h4>
+        <p>Yorum yazmak yorucu. Mikrofona dokun, "Bugün 1v1'de cesur" de — otomatik metne çevrilir, kaydedilir.</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">⏭️</span> Atla seçeneği</h4>
+        <p>Karar veremediğin oyuncu var mı? "Atla" → liste sonuna gider. Eve gidince soğukkanlıca tamamlarsın.</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">🚫</span> Yorum baskısı yok</h4>
+        <p>Sahada uzun yorum YAZMAZSIN. Sadece 4 yıldız + isteğe bağlı 1 cümle. Detaylı veli notu evde 10 dakikada.</p>
+      </div>
+
+      <div class="principle-card">
+        <h4><span class="ico">📊</span> Otomatik özet</h4>
+        <p>Sistem 1 antrenmandan: en yüksek, en gelişen, dikkat edilmesi gereken oyuncuyu otomatik çıkarır. Antrenör hesap tutmaz.</p>
+      </div>
+
+    </div>
+
+    <h3>🛡️ Akıllı Hata-Engelleme Teknolojileri</h3>
+    <p style="font-size:13px;color:#5b6b80;margin:0 0 14px;line-height:1.55">Antrenör <strong>yorgun, dağınık, eksik bırakma riski yüksek.</strong> Sistem proaktif uyarılarla ve otomasyon ile hatayı kaynağında engeller. <strong>Hedef: %90 daha az insan hatası, %100 veri tutarlılığı.</strong></p>
+
+    <div class="smart-grid">
+
+      <div class="smart-card">
+        <div class="icon">📡</div>
+        <div class="body">
+          <div class="ttl">Otomatik Yoklama (NFC / QR / GPS)</div>
+          <div class="desc">Sporcu saha turnikesinden geçtiği anda kartı okutur, sistemde "Sahada" işaretlenir. Antrenör elle yoklama almaz, unutmaz.</div>
+          <div class="example"><strong>Hata önler:</strong> "Ali bugün geldi miydi geldi mi?" tartışması ortadan kalkar. Antrenör sadece eksik kalanları onaylar.</div>
+          <span class="tag-tech">NFC + Backend Sync</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">⚠️</div>
+        <div class="body">
+          <div class="ttl">Anomali Uyarısı (Anormal Puan)</div>
+          <div class="desc">Antrenör 3 hafta 2★ verdiği oyuncuya birden 5★ verirse sistem uyarır: "Bu oyuncu son 4 antrenmanda ortalama 2.3★ idi. Emin misin?"</div>
+          <div class="example"><strong>Hata önler:</strong> Yanlış oyuncuyu puanlama, yorgunluktan rastgele tıklama, isim karıştırma.</div>
+          <span class="tag-tech">İstatistiksel Anomali Tespiti</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">📊</div>
+        <div class="body">
+          <div class="ttl">Bias (Önyargı) Uyarısı</div>
+          <div class="desc">Antrenör tüm takıma 5★ veya tüm takıma 3★ verirse sistem fark eder: "12 oyuncudan 11'ine 5★ verdin — kontrol eder misin?"</div>
+          <div class="example"><strong>Hata önler:</strong> Yorgunluktan kestirme yapma, "iyi günde olduğu için herkese yüksek puan" eğilimi.</div>
+          <span class="tag-tech">Dağılım Analizi</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">📋</div>
+        <div class="body">
+          <div class="ttl">Eksik Puanlama Uyarısı</div>
+          <div class="desc">Antrenman bitti ama 3 oyuncu hâlâ puanlanmadı? Sistem önce telefonu titreştirir, sonra 30 dk sonra push notification gönderir. Karne'ye işlemeden tamamlatır.</div>
+          <div class="example"><strong>Hata önler:</strong> "Ahmet'i unuttum" senaryosu — sezon sonunda eksik karne çıkmaz.</div>
+          <span class="tag-tech">Push + Reminder Logic</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">🩹</div>
+        <div class="body">
+          <div class="ttl">Yaralanma Hatırlatma</div>
+          <div class="desc">Geçen antrenmanda Mehmet ayak bileğini incitti. Sistem bugün antrenör ekranında öne çıkarır: "⚠️ Mehmet — son antrenman ayak bileği. Fizyo onayı var mı?"</div>
+          <div class="example"><strong>Hata önler:</strong> Yaralı oyuncuyu farkında olmadan ağır yüklenme; veliyle bilgi kopukluğu.</div>
+          <span class="tag-tech">Sağlık Geçmişi Entegrasyon</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">🎤</div>
+        <div class="body">
+          <div class="ttl">Sesle Hızlı Not (Speech-to-Text)</div>
+          <div class="desc">Antrenör mikrofona dokunur, "Bugün 1v1'de cesur, sol ayak hâlâ zayıf" der. Otomatik metne çevrilir, oyuncu kaydına eklenir.</div>
+          <div class="example"><strong>Hata önler:</strong> Yazma yorgunluğu → not yazmama → karne'de boş kalan yorum alanı.</div>
+          <span class="tag-tech">Apple/Google Speech API</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">✅</div>
+        <div class="body">
+          <div class="ttl">Çift Onay (Kritik Durumlar)</div>
+          <div class="desc">Antrenör 1★ verdiyse, "uzun süre devam eden ciddi durum" işaretlediyse veya yaralanma raporu giriyorsa sistem "Emin misin?" pop-up'ıyla teyit ister.</div>
+          <div class="example"><strong>Hata önler:</strong> Yanlış parmak/yorgunluktan ciddi puan/işaret. Veliye yanlış endişe gönderme.</div>
+          <span class="tag-tech">Critical Action Confirmation</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">📈</div>
+        <div class="body">
+          <div class="ttl">Trend Önizleme (Antrenörü Bilgilendirir)</div>
+          <div class="desc">Antrenör Ali'yi puanlarken ekranın üstünde küçük grafik: son 8 antrenman trendi (3.2★ → 4.1★ yükselişte). Antrenör bağlamı görerek puanlar.</div>
+          <div class="example"><strong>Hata önler:</strong> Tek günün performansını sezon ortalaması zannetme; oyuncuyu yanlış konumlandırma.</div>
+          <span class="tag-tech">Inline Mini-Chart</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">🌙</div>
+        <div class="body">
+          <div class="ttl">Mesai-Saat Uyarısı</div>
+          <div class="desc">Antrenör gece 22:00'dan sonra puanlama yapıyorsa sistem öneri: "Yorgun olabilirsin. Yarın sabah devam et — verin korunuyor." Antrenmandan en geç 4 saat sonra şart koş.</div>
+          <div class="example"><strong>Hata önler:</strong> Geç saatte yorgun antrenör tutarsız puan verir. Veri kalitesini korur.</div>
+          <span class="tag-tech">Wellness + Data Quality</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">🤖</div>
+        <div class="body">
+          <div class="ttl">AI Destek (Maç Sonrası Veri Karşılaştırma)</div>
+          <div class="desc">Antrenör Ali'ye antrenmanlarda 5★ veriyor ama maç istatistiklerinde Ali ortalamada. Sistem: "Antrenman puanın maç verisiyle uyumsuz — gözden geçirir misin?"</div>
+          <div class="example"><strong>Hata önler:</strong> Subjektif önyargı (favori oyuncu) sezon sonu objektif performans karşılaştırmasında ortaya çıkmasın.</div>
+          <span class="tag-tech">Cross-Validation AI</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">📅</div>
+        <div class="body">
+          <div class="ttl">Otomatik Veli Bildirimi (Düşük Puan)</div>
+          <div class="desc">Bir oyuncu 4 antrenman üst üste 2★ alıyorsa sistem antrenörün takvimine otomatik "Veli ile bireysel görüşme" davetiyesi koyar.</div>
+          <div class="example"><strong>Hata önler:</strong> Sorunun büyümesi, veli "neden bizden saklandı" tepkisi, oyuncunun moralinin düşmesi.</div>
+          <span class="tag-tech">Trigger-Based Workflow</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">🔄</div>
+        <div class="body">
+          <div class="ttl">Devamsızlık Sebep Standardı</div>
+          <div class="desc">Antrenör "yok" işaretlediği oyuncuya açıklama yazmaz — dropdown'dan seçer: Hastalık / Aile / Okul / İzin / Cezalı / Bilinmiyor. Tek-tap kayıt.</div>
+          <div class="example"><strong>Hata önler:</strong> Tutarsız metin notları, sezon sonu istatistik üretilemez veri. Standart raporlama.</div>
+          <span class="tag-tech">Controlled Vocabulary</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>🔗 Karneye Nasıl Yansır?</h3>
+    <div class="karne-bridge">
+      <h4>Antrenör puanı → Veli karnesi otomatik bağlantı</h4>
+      <p>Antrenör her antrenman sonrası 4 corner puanını verir. Sistem <strong>3 aylık dönemin tüm puanlarını</strong> ortalar ve veli karnesindeki yıldız puanını günceller.</p>
+      <p>Önceden gördüğün <strong>"Veli Karnesi" şablonlarındaki yıldız puanları</strong> (U10/U12/U14/U16-U18 için) işte buradan beslenir — manuel hesap yok, otomatik.</p>
+      <div class="formula">
+        <strong>Karne yıldızı (Teknik corner)</strong> = Σ(antrenman puanları + maç puanları) / N<br>
+        Örnek: 36 antrenman × Teknik puanı = Mart sonu karne yıldızı<br>
+        <strong>Antrenör müdahalesi:</strong> son 30 gün ağırlığı %60, daha eskisi %40 (yakın gelişim önemli)
+      </div>
+      <p style="margin-top:10px"><strong>Veli için sonuç:</strong> her 3 ayda bir dolu karne hazır, tek tıkla PDF olarak telefonuna düşer. Antrenör bir saat ekstra çalışmadan kazandığını sunar.</p>
+    </div>
+
+    <p style="margin-top:18px;font-size:11.5px;color:#5b6b80;font-style:italic;text-align:center">📌 Bu sayfa antrenör puanlama UX'inin <strong>3 ekran mockup'ıdır</strong>. Gerçek ürünü yazıldığında: PWA + offline cache + ses-tanıma + otomatik karne hesaplama backend'i devreye girer.</p>
   </div>
 </section>
 
