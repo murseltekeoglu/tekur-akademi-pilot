@@ -47,6 +47,47 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Hel
 /* Scroll margin — sticky tabs (top:0, ~50px yüksek) altına kaymasın */
 .section h3,.kayit-section h3,.match-section h3,.scoring-section h3,.kaynak-section h3{scroll-margin-top:70px}
 
+/* Back-to-TOC yüzen buton */
+.back-to-toc{
+  position:fixed;
+  bottom:24px;
+  right:20px;
+  background:#1e6091;
+  color:#fff;
+  padding:11px 18px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(10,61,98,.45);
+  z-index:50;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .25s, transform .25s, visibility .25s;
+  font-family:inherit;
+  letter-spacing:.2px;
+}
+.back-to-toc.visible{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0)
+}
+.back-to-toc:hover{background:#0a3d62;transform:translateY(-2px)}
+.back-to-toc:active{transform:scale(.96)}
+.back-to-toc .arrow{font-size:15px;line-height:1;display:inline-block}
+@media(max-width:600px){
+  .back-to-toc{bottom:18px;right:14px;padding:10px 14px;font-size:12px}
+}
+@media print{
+  .back-to-toc{display:none!important}
+}
+
 .summary-card{background:#fff;border-radius:12px;padding:18px;margin-bottom:18px;border:1px solid #e3e8ef;box-shadow:0 1px 4px rgba(0,0,0,.03)}
 .summary-card h2{margin:0 0 4px;font-size:20px;font-weight:800;color:#0a3d62}
 .summary-card .meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
@@ -6793,6 +6834,73 @@ function buildTOC(){
 }
 
 document.addEventListener('DOMContentLoaded',buildTOC);
+
+// Back-to-TOC yüzen buton — aktif bölümün TOC'una dönüş
+function setupBackToToc(){
+  const btn=document.createElement('button');
+  btn.className='back-to-toc';
+  btn.type='button';
+  btn.setAttribute('aria-label','İçindekilere dön');
+  btn.innerHTML='<span class="arrow">↑</span><span>İçindekiler</span>';
+  document.body.appendChild(btn);
+
+  // Hangi bölüm şu an viewport'ta?
+  function findCurrentSection(){
+    const sections=Array.from(document.querySelectorAll('.section.active, .kayit-section, .match-section, .scoring-section, .kaynak-section'));
+    const scrollY=window.scrollY+120;
+    for(const sec of sections){
+      const rect=sec.getBoundingClientRect();
+      const top=rect.top+window.scrollY;
+      const bottom=top+rect.height;
+      if(scrollY>=top&&scrollY<bottom)return sec;
+    }
+    return document.querySelector('.section.active');
+  }
+
+  // Görünür/görünmez kontrolü
+  function update(){
+    const sec=findCurrentSection();
+    if(!sec){btn.classList.remove('visible');return;}
+    const toc=sec.querySelector(':scope > .toc')||sec.querySelector('.wrap > .toc');
+    if(!toc){btn.classList.remove('visible');return;}
+    const tocRect=toc.getBoundingClientRect();
+    // TOC viewport üstünden çıkarsa butonu göster
+    if(tocRect.bottom<10){
+      btn.classList.add('visible');
+    }else{
+      btn.classList.remove('visible');
+    }
+  }
+
+  // Tıklayınca aktif bölümün TOC'una smooth scroll
+  btn.addEventListener('click',()=>{
+    const sec=findCurrentSection();
+    if(!sec)return;
+    const toc=sec.querySelector(':scope > .toc')||sec.querySelector('.wrap > .toc');
+    if(toc){
+      toc.scrollIntoView({behavior:'smooth',block:'start'});
+    }else{
+      sec.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+
+  // Scroll ve resize'da güncelle (passive listener, throttled)
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(!ticking){
+      requestAnimationFrame(()=>{update();ticking=false;});
+      ticking=true;
+    }
+  },{passive:true});
+  window.addEventListener('resize',update);
+
+  // Tab değişiminde de hesapla
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setTimeout(update,300)));
+
+  update();
+}
+
+document.addEventListener('DOMContentLoaded',setupBackToToc);
 </script>
 
 </body>
