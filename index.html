@@ -31,6 +31,22 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Hel
 .section{display:none;padding:24px 0 60px}
 .section.active{display:block}
 
+/* TOC - Otomatik İçindekiler */
+.toc{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);border:1px solid #d1dce8;border-radius:12px;padding:11px 14px;margin:0 0 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;box-shadow:0 2px 6px rgba(10,61,98,.08)}
+.toc-label{color:#0a3d62;font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;flex-shrink:0;margin-right:4px;font-weight:800}
+.toc a{display:inline-block;padding:6px 11px;background:#eef5ff;color:#1e6091;border-radius:14px;font-size:11.5px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s;border:1px solid transparent;line-height:1.2}
+.toc a:hover{background:#1e6091;color:#fff;border-color:#1e6091}
+.toc a:active{transform:scale(.96)}
+.toc a.active{background:#0a3d62;color:#fff}
+@media(max-width:600px){
+  .toc{padding:9px 10px;gap:5px}
+  .toc-label{display:none}
+  .toc a{font-size:11px;padding:5px 10px}
+}
+
+/* Scroll margin — sticky tabs (top:0, ~50px yüksek) altına kaymasın */
+.section h3,.kayit-section h3,.match-section h3,.scoring-section h3,.kaynak-section h3{scroll-margin-top:70px}
+
 .summary-card{background:#fff;border-radius:12px;padding:18px;margin-bottom:18px;border:1px solid #e3e8ef;box-shadow:0 1px 4px rgba(0,0,0,.03)}
 .summary-card h2{margin:0 0 4px;font-size:20px;font-weight:800;color:#0a3d62}
 .summary-card .meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
@@ -6706,6 +6722,77 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
   });
 });
+
+// Otomatik İçindekiler (TOC) üretici
+function buildTOC(){
+  const sections=document.querySelectorAll('.section, .kayit-section, .match-section, .scoring-section, .kaynak-section');
+  sections.forEach(section=>{
+    if(section.querySelector(':scope > .toc'))return;
+    // Sadece doğrudan section çocuğu olan h3'leri al (içerideki kart h3'leri değil)
+    const h3s=Array.from(section.querySelectorAll('h3')).filter(h=>{
+      let p=h.parentElement;
+      while(p&&p!==section){
+        if(p.classList.contains('drill-body')||p.classList.contains('tech-body')||p.classList.contains('expert')||p.classList.contains('coach-body')||p.classList.contains('karne-body')||p.classList.contains('kvkk-text')||p.classList.contains('consent-form')) return false;
+        p=p.parentElement;
+      }
+      return true;
+    });
+    if(h3s.length<3)return;
+
+    const toc=document.createElement('nav');
+    toc.className='toc';
+    const label=document.createElement('span');
+    label.className='toc-label';
+    label.textContent='İçindekiler:';
+    toc.appendChild(label);
+
+    h3s.forEach((h3,i)=>{
+      if(!h3.id){
+        const baseId=section.id||(section.className.split(' ')[0]||'sec');
+        h3.id=baseId+'-h-'+i;
+      }
+      const link=document.createElement('a');
+      link.href='#'+h3.id;
+      // Emoji ve uzun parantezli açıklamaları temizle, kısalt
+      let text=h3.textContent.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}]/gu,'').trim();
+      text=text.replace(/\([^)]*\)/g,'').trim();
+      // Çok uzun ise ilk 3 kelimeyi al
+      const words=text.split(/\s+/);
+      if(words.length>3)text=words.slice(0,3).join(' ');
+      link.textContent=text;
+      link.title=h3.textContent.trim();
+      toc.appendChild(link);
+    });
+
+    // summary-card'dan sonra; yoksa en başa
+    const summary=section.querySelector(':scope > .summary-card');
+    if(summary){
+      summary.parentNode.insertBefore(toc,summary.nextSibling);
+    }else{
+      // .wrap içeriyse onun üstüne; aksi halde section başına
+      const wrap=section.querySelector(':scope > .wrap');
+      if(wrap){
+        const firstH=wrap.querySelector('h2, h3');
+        if(firstH){
+          // h2 + sub paragraphtan sonra
+          let after=firstH;
+          let next=after.nextElementSibling;
+          while(next&&(next.tagName==='P'||next.classList.contains('sub'))){
+            after=next;
+            next=after.nextElementSibling;
+          }
+          after.parentNode.insertBefore(toc,after.nextSibling);
+        }else{
+          wrap.insertBefore(toc,wrap.firstChild);
+        }
+      }else{
+        section.insertBefore(toc,section.firstElementChild);
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded',buildTOC);
 </script>
 
 </body>
