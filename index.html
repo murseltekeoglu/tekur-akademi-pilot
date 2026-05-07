@@ -533,6 +533,66 @@ details.session-detail[open] summary::before{transform:rotate(90deg)}
 /* DEVAMSIZ DROPDOWN */
 .absence-reason{display:block;width:100%;padding:5px 8px;font-size:10.5px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#5b6b80;margin-top:4px}
 
+/* OZEL DERS — KARNE TAGS */
+.kapatildi{display:inline-block;background:#dcfce7;color:#14532d;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.devam{display:inline-block;background:#fef3c7;color:#92400e;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.kismen{display:inline-block;background:#e0e7ff;color:#3730a3;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.3px}
+
+/* OZEL DERS SECTION */
+.ozel-ders-section{background:linear-gradient(180deg,#7e22ce 0%,#6b21a8 100%);color:#fff;padding:36px 16px}
+.ozel-ders-section .wrap{max-width:1100px;margin:0 auto}
+.ozel-ders-section h2{margin:0 0 8px;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.ozel-ders-section .sub{font-size:14px;color:#e9d5ff;margin:0 0 26px;line-height:1.6;max-width:820px}
+.ozel-ders-section h3{font-size:16px;font-weight:700;color:#fcd34d;margin:24px 0 12px;border-bottom:1px solid rgba(252,211,77,.3);padding-bottom:6px}
+
+/* SISTEM ONERI KARTLARI */
+.suggestion-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:10px 0 20px}
+@media(min-width:760px){.suggestion-grid{grid-template-columns:1fr 1fr}}
+.suggestion-card{background:#fff;color:#1a2233;border-radius:12px;padding:16px;border-left:5px solid #fcd34d;box-shadow:0 4px 12px rgba(0,0,0,.15);position:relative}
+.suggestion-card.urgent{border-left-color:#dc2626}
+.suggestion-card .trigger{display:inline-block;font-size:10.5px;background:#7e22ce;color:#fff;padding:3px 9px;border-radius:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:8px}
+.suggestion-card.urgent .trigger{background:#dc2626}
+.suggestion-card .player{font-size:15px;font-weight:800;color:#0a3d62;margin-bottom:4px}
+.suggestion-card .reason{font-size:12.5px;color:#3b4a5e;line-height:1.5;margin-bottom:10px}
+.suggestion-card .reason strong{color:#7c2d12}
+.suggestion-card .breakdown{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:11.5px;background:#f8fafc;padding:8px 10px;border-radius:6px;margin-bottom:10px;color:#1a2233}
+.suggestion-card .breakdown dt{color:#5b6b80;font-weight:700}
+.suggestion-card .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.suggestion-card .btn-assign{background:#16a34a;color:#fff;padding:10px;border:none;border-radius:8px;font-weight:700;font-size:12.5px;cursor:pointer}
+.suggestion-card .btn-skip{background:#f1f5f9;color:#5b6b80;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-weight:700;font-size:12.5px;cursor:pointer}
+
+/* TAKVIM ONIZLEME */
+.calendar-view{background:#fff;color:#1a2233;border-radius:12px;padding:14px 16px;margin:10px 0;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.calendar-view h4{margin:0 0 12px;color:#0a3d62;font-size:15px;display:flex;justify-content:space-between;align-items:center}
+.calendar-view h4 .count{font-size:11px;background:#7e22ce;color:#fff;padding:3px 9px;border-radius:10px;font-weight:700}
+.calendar-row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #e3e8ef;font-size:12.5px}
+.calendar-row:last-child{border-bottom:none}
+.calendar-row .date-block{text-align:center;background:#f8fafc;border-radius:6px;padding:6px 4px}
+.calendar-row .date-block .day{font-size:18px;font-weight:800;color:#0a3d62;line-height:1}
+.calendar-row .date-block .month{font-size:10px;color:#5b6b80;text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.calendar-row .info .player-name{font-weight:700;color:#1a2233;font-size:13px}
+.calendar-row .info .session-info{font-size:11.5px;color:#5b6b80;margin-top:2px}
+.calendar-row .status-badge{font-size:11px;padding:4px 10px;border-radius:12px;font-weight:700;white-space:nowrap}
+.calendar-row .status-badge.confirmed{background:#dcfce7;color:#14532d}
+.calendar-row .status-badge.pending{background:#fef3c7;color:#92400e}
+.calendar-row .status-badge.completed{background:#e0e7ff;color:#3730a3}
+
+/* SONUC DEGERLENDIRME */
+.result-mockup{background:#fff;color:#1a2233;border-radius:12px;padding:18px 20px;margin:10px 0;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.result-mockup h4{margin:0 0 12px;color:#0a3d62;font-size:15px}
+.result-comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;background:#f8fafc;padding:14px;border-radius:8px;margin:10px 0}
+.result-comparison .col{text-align:center}
+.result-comparison .col .lbl{font-size:10.5px;color:#5b6b80;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.result-comparison .col .stars{font-size:20px;letter-spacing:2px}
+.result-comparison .col .stars .full{color:#fcd34d}
+.result-comparison .col .stars .empty{color:#e3e8ef}
+.result-comparison .arrow{font-size:24px;color:#16a34a;font-weight:800}
+.outcome-toggle{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
+.outcome-toggle button{padding:12px;border:2px solid #e3e8ef;border-radius:10px;background:#fff;font-weight:700;font-size:12px;cursor:pointer;color:#5b6b80;line-height:1.3}
+.outcome-toggle button.selected.evet{background:#dcfce7;border-color:#16a34a;color:#14532d}
+.outcome-toggle button.selected.kismen{background:#fef3c7;border-color:#f59e0b;color:#92400e}
+.outcome-toggle button.selected.devam{background:#fee2e2;border-color:#dc2626;color:#7f1d1d}
+
 /* FOOT */
 footer{background:#0a3d62;color:#cdd9e6;padding:30px 16px 40px;margin-top:40px;font-size:13px;line-height:1.6}
 footer h4{color:#fff;margin:0 0 8px;font-size:14px}
@@ -1635,6 +1695,14 @@ footer a{color:#7fb3d5}
       </div>
     </div>
 
+    <h5 style="margin:18px 0 8px;font-size:12px;color:#0a3d62;text-transform:uppercase;letter-spacing:.5px">🎯 Özel Ders Geçmişi</h5>
+    <table class="karne-table">
+      <thead><tr><th>Tarih</th><th>Antrenör</th><th>Konu</th><th>Süre</th><th>Sonuç</th></tr></thead>
+      <tbody>
+        <tr><td colspan="5" style="text-align:center;color:#5b6b80;font-style:italic;padding:14px 8px">Bu yaş grubunda özel ders <strong>önerilmez</strong> — gelişim grup oyunu içinde olur. (UEFA Grassroots ilkesi)</td></tr>
+      </tbody>
+    </table>
+
     <div class="karne-comment">
       <div class="who">Antrenör Notu — Mehmet Demir</div>
       Ahmet bu ay sahanın gözdesi: enerji yüksek, topa âşık, gruba lider. Tek alanda biraz yardım: <strong>antrenör konuşurken sabırsız</strong> — "şimdi yapalım!" diye atılıyor. Önümüzdeki ay onu mini-yardımcı yapıp dinlemeyi öğreteceğiz. <strong>Asla kaygılanmayın</strong> — bu yaşta çok normal, hatta enerjik çocuklarda bekleniyor. Gelmeye devam etsin, çok güzel ilerliyor!
@@ -2571,6 +2639,16 @@ footer a{color:#7fb3d5}
       </tbody>
     </table>
 
+    <h5 style="margin:18px 0 8px;font-size:12px;color:#0a3d62;text-transform:uppercase;letter-spacing:.5px">🎯 Özel Ders Geçmişi (Eksik Kapatma)</h5>
+    <table class="karne-table">
+      <thead><tr><th>Tarih</th><th>Antrenör</th><th>Konu</th><th>Süre</th><th>Sonuç</th></tr></thead>
+      <tbody>
+        <tr><td>10 Şub 2026</td><td>Selin Yıldız</td><td>Sol ayak pas tanışıklığı (devamsızlık telafi)</td><td>45 dk</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+        <tr><td>3 Mart 2026</td><td>Selin Yıldız</td><td>1v1 cesareti</td><td>30 dk</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:#5b6b80;margin:6px 0 0;font-style:italic">Sebep: 4 Şub'da grip nedeniyle 2 antrenmana katılamadı. Antrenörü telafi ederken bireysel cesaret çalışması da ekledi.</p>
+
     <div class="karne-comment">
       <div class="who">Antrenör Notu — Selin Yıldız</div>
       Ali bu dönem büyük adım attı: özellikle <strong>1v1 cesareti</strong> patladı, artık savunmacıya doğrudan gidiyor. Sol ayak hâlâ zayıf — bu sezon geliştirebileceğimiz tek bireysel hedef. Karar verme orta seviyede; bunu 4v4 oyunlarda iyileştireceğiz. <strong>Sosyal yönüyle takım ruhunun lokomotifi</strong> — antrenmana sevkle geliyor, takım arkadaşlarını tebrik ediyor. Veli olarak şu dönem evde sol ayak için futbol-tenis önerebilirsiniz (5 dk × 3 gün).
@@ -3499,6 +3577,18 @@ footer a{color:#7fb3d5}
         <tr><td class="ind">Forvet (ST)</td><td><span class="bar-mini"><span class="fill" style="width:35%"></span></span> Düşük</td></tr>
       </tbody>
     </table>
+
+    <h5 style="margin:18px 0 8px;font-size:12px;color:#0a3d62;text-transform:uppercase;letter-spacing:.5px">🎯 Özel Ders Geçmişi (Eksik Kapatma)</h5>
+    <table class="karne-table">
+      <thead><tr><th>Tarih</th><th>Antrenör</th><th>Konu</th><th>Süre</th><th>Sonuç</th></tr></thead>
+      <tbody>
+        <tr><td>15 Ocak 2026</td><td>Cem Aydın (UEFA C)</td><td>Sol ayak pas tekniği (corner düşüşü)</td><td>60 dk</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+        <tr><td>22 Ocak 2026</td><td>Cem Aydın (UEFA C)</td><td>Sol ayak pas tekniği — devam</td><td>60 dk</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+        <tr><td>5 Şub 2026</td><td>Onur Demir</td><td>Wall pass + open body alma</td><td>45 dk</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+        <tr><td>26 Şub 2026</td><td>Cem Aydın (UEFA C)</td><td>Şut isabet — uzun mesafe</td><td>60 dk</td><td><span class="devam">🔄 Devam ediyor</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:#5b6b80;margin:6px 0 0;font-style:italic">Sistem önerdi: <strong>2 ders</strong> (sol ayak pas corner düşüşü) · <strong>1 ders</strong> (yetenek geliştirme — wall pass) · <strong>1 ders</strong> (şut hedef altında 4 hafta). Toplam ücret 950 TL, veli onay tamamlandı.</p>
 
     <div class="karne-comment">
       <div class="who">Antrenör Notu — Cem Aydın</div>
@@ -4450,6 +4540,19 @@ footer a{color:#7fb3d5}
         <tr><td class="ind">Esneklik (sit-and-reach)</td><td>+5 cm (uzama düşüşüne rağmen)</td></tr>
       </tbody>
     </table>
+
+    <h5 style="margin:18px 0 8px;font-size:12px;color:#0a3d62;text-transform:uppercase;letter-spacing:.5px">🎯 Özel Ders Geçmişi (Eksik Kapatma + Yetenek Geliştirme)</h5>
+    <table class="karne-table">
+      <thead><tr><th>Tarih</th><th>Antrenör</th><th>Konu</th><th>Süre</th><th>Puan Δ</th><th>Sonuç</th></tr></thead>
+      <tbody>
+        <tr><td>11 Ocak 2026</td><td>Onur Bektaş (UEFA B)</td><td>Hat senkron savunma — bireysel</td><td>75 dk</td><td>3.8★ → 4.5★</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+        <tr><td>18 Ocak 2026</td><td>Dr. Pınar Yıldırım</td><td>Sürat mekaniği (kondisyoner)</td><td>60 dk</td><td>4.62→4.55 sn</td><td><span class="kapatildi">✅ Hedef yakın</span></td></tr>
+        <tr><td>1 Şub 2026</td><td>Onur Bektaş (UEFA B)</td><td>Sol ayak baskı altı pas</td><td>60 dk</td><td>7/10 → 9/10</td><td><span class="kapatildi">✅ Kapatıldı</span></td></tr>
+        <tr><td>15 Şub 2026</td><td>Dr. Pınar Yıldırım</td><td>Plyometrik tanışıklığı</td><td>45 dk</td><td>İlk kez</td><td><span class="kismen">🟦 Devam — gelişiyor</span></td></tr>
+        <tr><td>1 Mart 2026</td><td>Onur Bektaş (UEFA B)</td><td>Mevki rotasyonu (10 numara denemesi)</td><td>90 dk</td><td>—</td><td><span class="kismen">🟦 Yetenek profili genişletme</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:#5b6b80;margin:6px 0 0;font-style:italic"><strong>Sistem önerisi:</strong> 2 ders devamsızlık telafi, 2 ders bireysel hedef geri (sürat + sol ayak), 1 ders yetenek geliştirme. Toplam 5 özel ders, hepsi veli onayı ile gerçekleşti. Bireysel hedeflerin %80'i kapatıldı.</p>
 
     <div class="karne-comment">
       <div class="who">Antrenör + Kondisyoner Ortak Notu</div>
@@ -5524,6 +5627,20 @@ footer a{color:#7fb3d5}
       </tbody>
     </table>
 
+    <h5 style="margin:18px 0 8px;font-size:12px;color:#0a3d62;text-transform:uppercase;letter-spacing:.5px">🎯 Özel Ders Geçmişi (Profesyonel Hazırlık)</h5>
+    <table class="karne-table">
+      <thead><tr><th>Tarih</th><th>Antrenör/Uzman</th><th>Konu</th><th>Süre</th><th>Hedef</th><th>Sonuç</th></tr></thead>
+      <tbody>
+        <tr><td>8 Ocak 2026</td><td>Dr. Tolga Demir (Kondisyoner)</td><td>1RM Squat tekniği</td><td>90 dk</td><td>95→105 kg</td><td><span class="kapatildi">✅ 105 kg ulaşıldı</span></td></tr>
+        <tr><td>22 Ocak 2026</td><td>Kemal Polat (UEFA A)</td><td>Sol kanat 1v1 senaryoları (rakip analizi)</td><td>75 dk</td><td>Maç hazırlığı</td><td><span class="kapatildi">✅ Maçta uygulandı</span></td></tr>
+        <tr><td>5 Şub 2026</td><td>Berk Yıldız (Analist)</td><td>Video analiz — kişisel maç</td><td>60 dk</td><td>Karar verme</td><td><span class="kapatildi">✅ Bilinç yükseldi</span></td></tr>
+        <tr><td>12 Şub 2026</td><td>Ayşe Korkmaz (Fizyo)</td><td>Adduktör güçlendirme — sakatlık önleme</td><td>45 dk</td><td>Esneklik +cm</td><td><span class="kapatildi">✅ +12 cm korundu</span></td></tr>
+        <tr><td>19 Şub 2026</td><td>Dr. Tolga Demir (Kondisyoner)</td><td>Sprint mekaniği (3.92 → hedef 3.85 sn)</td><td>60 dk</td><td>Maks sürat</td><td><span class="devam">🔄 Devam — Mart sonu test</span></td></tr>
+        <tr><td>1 Mart 2026</td><td>Mental Koç (dış uzman)</td><td>Stres yönetimi — A takım denemesi</td><td>60 dk</td><td>Konsantrasyon</td><td><span class="kapatildi">✅ İlk seans tamam</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:#5b6b80;margin:6px 0 0;font-style:italic"><strong>Profesyonel hazırlık programı:</strong> 4 ekip uzmanı (antrenör + kondisyoner + analist + fizyo) + 1 dış mental koç ile bireyselleştirilmiş program. Sistem her uzmanın hak ediş ücretini takip eder, kulüp politikasına göre veliye fatura kesilir. <strong>A takım denemesi öncesi tam hazırlık.</strong></p>
+
     <div class="karne-comment">
       <div class="who">Antrenör + Bilim Ekibi Ortak Notu</div>
       Emir bu dönem <strong>sezonun en kazanan oyuncusu</strong>: 1RM squat 95→105 kg, 30m sprint 4.05→3.92 sn, Yo-Yo 11→13. seviye. Sol kanat'ta tartışmasız ilk 11. <strong>Profesyonel kariyer için tüm göstergeler pozitif.</strong> 3 sarı kart not edildi — bu seviyede agresif oyun normal ama mental koçlukta "soğukkanlı" çalışacağız. <strong>A takım antrenörü iki maçında izledi</strong>, sezon sonu denemesi ihtimal yüksek. Veli olarak: <strong>uyum mükemmel</strong>, mevcut disiplini koru. Beslenmede protein 1.6 g/kg = 109 g/gün, makarna+ tavuk+yumurta+balık dengeli. Cep telefonu yatağa girmiyor (tebrikler) — devam.
@@ -5793,6 +5910,14 @@ footer a{color:#7fb3d5}
         <div class="label">
           <strong>Maç/Antrenman bildirimi WhatsApp/SMS almak istiyorum</strong> <span class="req">Zorunlu (operasyonel)</span>
           <div class="desc">Antrenman saati değişikliği, maç bilgisi, saha lokasyonu gibi operasyonel bildirimleri WhatsApp ve SMS ile almak istiyorum (kulüp işleyişi için zorunlu).</div>
+        </div>
+      </div>
+
+      <div class="consent-row">
+        <span class="checkbox checked"></span>
+        <div class="label">
+          <strong>Özel ders bilgilendirme + ek ücret onay sürecini kabul ediyorum</strong> <span class="req">Zorunlu</span>
+          <div class="desc">Sporcumun devamsızlık, karne düşüşü veya yetenek geliştirme nedeniyle özel ders ihtiyacı doğduğunda kulübün bana <strong>WhatsApp ile öneri göndermesini</strong> ve önerilen ders <strong>ek ücret onayım dahilinde</strong> organize edilmesini kabul ediyorum. Onaylamadığım hiçbir özel ders verilmez ve ücret talep edilmez.</div>
         </div>
       </div>
     </div>
@@ -6517,6 +6642,26 @@ footer a{color:#7fb3d5}
         </div>
       </div>
 
+      <div class="smart-card">
+        <div class="icon">🎯</div>
+        <div class="body">
+          <div class="ttl">Özel Ders Otomatik Tetikleme</div>
+          <div class="desc">Sistem her gün 3 koşulu kontrol eder: <strong>(1)</strong> son 14 günde ≥2 devamsızlık, <strong>(2)</strong> bir corner 3 dönem üst üste düştü, <strong>(3)</strong> bireysel hedef 4 hafta hedef-altında. Antrenör dashboard'una öneri kartı düşer.</div>
+          <div class="example"><strong>Hata önler:</strong> Sporcu eksiği fark edilmeden büyür → karnede çakılır → veli memnuniyetsizliği. Sistem proaktif uyarır, antrenör tek-tap atayabilir.</div>
+          <span class="tag-tech">Celery Beat + Trigger Logic</span>
+        </div>
+      </div>
+
+      <div class="smart-card">
+        <div class="icon">📲</div>
+        <div class="body">
+          <div class="ttl">Veli Onay Pipeline (Özel Ders)</div>
+          <div class="desc">Özel ders atandığında veliye WhatsApp interactive template: konu + tarih + antrenör + <strong>ücret</strong> + onay/red butonları. Veli reddederse sisteme alternatif öneri (farklı tarih/antrenör/süre) tetiklenir.</div>
+          <div class="example"><strong>Hata önler:</strong> Veliye sürpriz fatura → şikayet/kayıp güven. Onay pipeline'ı her ücreti şeffaf gösterir, veli "Onayla" demeden hizmet verilmez.</div>
+          <span class="tag-tech">WhatsApp Business API + Workflow</span>
+        </div>
+      </div>
+
     </div>
 
     <h3>🔗 Karneye Nasıl Yansır?</h3>
@@ -6533,6 +6678,226 @@ footer a{color:#7fb3d5}
     </div>
 
     <p style="margin-top:18px;font-size:11.5px;color:#5b6b80;font-style:italic;text-align:center">📌 Bu sayfa antrenör puanlama UX'inin <strong>3 ekran mockup'ıdır</strong>. Gerçek ürünü yazıldığında: PWA + offline cache + ses-tanıma + otomatik karne hesaplama backend'i devreye girer.</p>
+  </div>
+</section>
+
+<section class="ozel-ders-section">
+  <div class="wrap">
+    <h2>🎯 Özel Ders Yönetimi</h2>
+    <p class="sub">Sporcunun <strong>devamsızlık nedeniyle eksik kaldığı eğitimleri</strong> veya <strong>karnede düşüş gösteren corner'larını</strong> bireysel olarak kapatmak için özel ders sistemi. Antrenör tek-tap atama, veli WhatsApp onay, ders sonrası karneye otomatik yansıma. Hem antrenörün adı hem tarih bilgisi karnede şeffaf görünür.</p>
+
+    <h3>🔔 Sistem Önerileri (Otomatik Tespit)</h3>
+    <p style="font-size:12.5px;color:#cdd9e6;margin:0 0 14px;line-height:1.55">Sistem her gün 3 tetik koşulunu kontrol eder, antrenörün dashboard'una öneri kartları düşürür. Antrenör tek-tap "Özel Ders Ata" der, geri kalanı sistem hallediyor.</p>
+
+    <div class="suggestion-grid">
+
+      <div class="suggestion-card urgent">
+        <span class="trigger">Devamsızlık Tetiği</span>
+        <div class="player">Ali Kaya · U10 · #11</div>
+        <div class="reason">Son 14 günde <strong>3 antrenmana</strong> gelmedi (2 hastalık + 1 aile). Aerobik ve pas çalışması eksik.</div>
+        <dl class="breakdown">
+          <dt>Önerilen konu:</dt><dd>Pas devamlılığı + aerobik tazeleme</dd>
+          <dt>Önerilen süre:</dt><dd>45 dk × 2 seans</dd>
+          <dt>Antrenör:</dt><dd>Selin Yıldız (sürekli takip)</dd>
+          <dt>Tahmini ücret:</dt><dd>2 × 200 TL = 400 TL</dd>
+        </dl>
+        <div class="actions">
+          <button class="btn-assign">✅ Özel Ders Ata</button>
+          <button class="btn-skip">⏭ Sonra</button>
+        </div>
+      </div>
+
+      <div class="suggestion-card urgent">
+        <span class="trigger">Karne Düşüşü</span>
+        <div class="player">Burak Çelik · U12 · #11</div>
+        <div class="reason">Teknik corner <strong>3 dönem üst üste düştü</strong>: 4.0★ → 3.7★ → 3.3★. Sol ayak pas isabet 6/10. Bireysel müdahale gerekli.</div>
+        <dl class="breakdown">
+          <dt>Önerilen konu:</dt><dd>Sol ayak pas tekniği — basınç altı</dd>
+          <dt>Önerilen süre:</dt><dd>60 dk × 4 seans (4 hafta)</dd>
+          <dt>Antrenör:</dt><dd>Cem Aydın (UEFA C, kendi antrenörü)</dd>
+          <dt>Tahmini ücret:</dt><dd>4 × 250 TL = 1000 TL</dd>
+        </dl>
+        <div class="actions">
+          <button class="btn-assign">✅ Özel Ders Ata</button>
+          <button class="btn-skip">⏭ Sonra</button>
+        </div>
+      </div>
+
+      <div class="suggestion-card">
+        <span class="trigger">Bireysel Hedef Geri</span>
+        <div class="player">Kerem Akın · U14 · #6</div>
+        <div class="reason">30m sprint hedefi <strong>4 hafta üst üste hedefin altında</strong> (4.62 sn vs 4.50 sn hedef). Kondisyoner desteği önerilir.</div>
+        <dl class="breakdown">
+          <dt>Önerilen konu:</dt><dd>Sürat mekaniği (kalkış + pist)</dd>
+          <dt>Önerilen süre:</dt><dd>60 dk × 3 seans</dd>
+          <dt>Uzman:</dt><dd>Dr. Pınar Yıldırım (kondisyoner)</dd>
+          <dt>Tahmini ücret:</dt><dd>3 × 350 TL = 1050 TL</dd>
+        </dl>
+        <div class="actions">
+          <button class="btn-assign">✅ Özel Ders Ata</button>
+          <button class="btn-skip">⏭ Sonra</button>
+        </div>
+      </div>
+
+      <div class="suggestion-card">
+        <span class="trigger">Yetenek Geliştirme</span>
+        <div class="player">Mert Önder · U12 · #5</div>
+        <div class="reason">Antrenör takdiri: <strong>üst seviyeye taşıma</strong> (genç yetenek). 10 numara mevki uygunluk %78, ek bireysel çalışmayla yükselir.</div>
+        <dl class="breakdown">
+          <dt>Önerilen konu:</dt><dd>10 numara yaratıcılık + open body</dd>
+          <dt>Önerilen süre:</dt><dd>90 dk × 1 seans</dd>
+          <dt>Antrenör:</dt><dd>Cem Aydın (UEFA C)</dd>
+          <dt>Tahmini ücret:</dt><dd>1 × 350 TL = 350 TL</dd>
+        </dl>
+        <div class="actions">
+          <button class="btn-assign">✅ Özel Ders Ata</button>
+          <button class="btn-skip">⏭ Sonra</button>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>📲 Atama → Veli Onay Akışı (WhatsApp)</h3>
+    <p style="font-size:12.5px;color:#cdd9e6;margin:0 0 14px;line-height:1.55">Antrenör "Özel Ders Ata" deyince sistem otomatik WhatsApp template gönderir. Veli interactive butonlarla onaylar/reddeder. Ücret onayı net.</p>
+
+    <div class="mockup-row">
+
+      <div>
+        <h4 style="color:#fcd34d;margin:0 0 12px;font-size:14px">📱 Veliye Giden WhatsApp Mesajı</h4>
+        <div class="whatsapp-msg">
+          <div class="wa-bubble">
+            <div class="head">⚽ Tekur Akademi <span class="badge">U12</span></div>
+            <div><strong>Burak için Özel Ders Önerisi</strong></div>
+            <dl class="info">
+              <dt>📚</dt><dd>Sol ayak pas tekniği</dd>
+              <dt>📅</dt><dd>15 Ocak Çar · 17:00 (60 dk)</dd>
+              <dt>👤</dt><dd>Cem Aydın (UEFA C)</dd>
+              <dt>📍</dt><dd>Tekur Spor Kompleksi · Saha 2</dd>
+              <dt>💰</dt><dd>250 TL (4 ders × 1000 TL toplam)</dd>
+              <dt>ℹ️</dt><dd>Sebep: Teknik corner 3 dönem ↓</dd>
+            </dl>
+            <div class="actions">
+              <a>✅ Onayla</a>
+              <a>❌ Reddet</a>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr;gap:6px;margin-top:6px">
+              <a style="display:block;padding:6px;text-align:center;background:#fff;color:#075e54;border-radius:6px;text-decoration:none;font-size:11px;font-weight:700;border:1px solid #b5d6c5">📞 Antrenörü ara</a>
+            </div>
+            <div class="time">14:23 ✓✓</div>
+          </div>
+        </div>
+        <p style="font-size:11px;color:#cdd9e6;text-align:center;margin:8px 0 0">Veli "Onayla" tap eder → Antrenör takvimine eklenir + ücret faturası kesilir</p>
+      </div>
+
+      <div>
+        <h4 style="color:#fcd34d;margin:0 0 12px;font-size:14px">📅 Antrenör Takvim Önizleme</h4>
+        <div class="calendar-view">
+          <h4>Yaklaşan Özel Dersler <span class="count">4 ders</span></h4>
+
+          <div class="calendar-row">
+            <div class="date-block"><div class="day">15</div><div class="month">Oca</div></div>
+            <div class="info">
+              <div class="player-name">Burak Çelik · U12</div>
+              <div class="session-info">17:00 · Sol ayak pas · 60 dk</div>
+            </div>
+            <span class="status-badge confirmed">Onaylı</span>
+          </div>
+
+          <div class="calendar-row">
+            <div class="date-block"><div class="day">22</div><div class="month">Oca</div></div>
+            <div class="info">
+              <div class="player-name">Burak Çelik · U12</div>
+              <div class="session-info">17:00 · Sol ayak pas (devam) · 60 dk</div>
+            </div>
+            <span class="status-badge confirmed">Onaylı</span>
+          </div>
+
+          <div class="calendar-row">
+            <div class="date-block"><div class="day">28</div><div class="month">Oca</div></div>
+            <div class="info">
+              <div class="player-name">Ali Kaya · U10</div>
+              <div class="session-info">16:00 · Pas + aerobik · 45 dk</div>
+            </div>
+            <span class="status-badge pending">Veli Onayı Bekliyor</span>
+          </div>
+
+          <div class="calendar-row">
+            <div class="date-block"><div class="day">29</div><div class="month">Oca</div></div>
+            <div class="info">
+              <div class="player-name">Mert Önder · U12</div>
+              <div class="session-info">18:00 · 10 numara yaratıcılık · 90 dk</div>
+            </div>
+            <span class="status-badge pending">Veli Onayı Bekliyor</span>
+          </div>
+
+          <div class="calendar-row">
+            <div class="date-block" style="background:#dcfce7"><div class="day">8</div><div class="month">Oca</div></div>
+            <div class="info">
+              <div class="player-name">Burak Çelik · U12</div>
+              <div class="session-info">17:00 · Sol ayak pas · 60 dk · ✅ Tamamlandı</div>
+            </div>
+            <span class="status-badge completed">Bitti</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <h3>✅ Özel Ders Sonrası Değerlendirme</h3>
+    <p style="font-size:12.5px;color:#cdd9e6;margin:0 0 14px;line-height:1.55">Özel ders bittikten sonra antrenör 4-corner puanı verir + öncesi/sonrası karşılaştırma + "Eksik kapatıldı mı?" soru. Karneye otomatik yansır.</p>
+
+    <div class="result-mockup">
+      <h4>Burak Çelik · 22 Ocak 2026 · Sol Ayak Pas Tekniği — 2. Seans</h4>
+
+      <div class="result-comparison">
+        <div class="col">
+          <div class="lbl">Öncesi (3 hafta önce)</div>
+          <div class="stars"><span class="full">★★★</span><span class="empty">★★</span></div>
+          <div style="font-size:11px;color:#5b6b80;margin-top:4px">Teknik 3.3★ · Sol pas 6/10</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="col">
+          <div class="lbl">Sonrası (bu seans)</div>
+          <div class="stars"><span class="full">★★★★</span><span class="empty">★</span></div>
+          <div style="font-size:11px;color:#5b6b80;margin-top:4px">Teknik 4.0★ · Sol pas 8/10</div>
+        </div>
+      </div>
+
+      <div style="font-size:13px;color:#1a2233;margin:14px 0 8px;font-weight:700">Eksik Kapatıldı mı?</div>
+      <div class="outcome-toggle">
+        <button class="selected evet">✅ Evet<br><span style="font-size:10px;font-weight:400;display:block">Karneye "Kapatıldı" rozeti</span></button>
+        <button class="kismen">🟦 Kısmen<br><span style="font-size:10px;font-weight:400;display:block">"Devam ediyor" rozeti</span></button>
+        <button class="devam">🔄 Hayır, devam<br><span style="font-size:10px;font-weight:400;display:block">"Yeni seans öner" rozeti</span></button>
+      </div>
+
+      <div style="font-size:13px;color:#1a2233;margin:12px 0 6px;font-weight:700">Antrenör Notu (sesle de OK)</div>
+      <div style="background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:8px 10px;font-size:12.5px;color:#7c2d12;font-style:italic">
+        "İlk seansa göre çok daha iyi. Sol ayak iç-üst geçişi rahat, vücut açısı doğru. 3. seansa gerek var mı kararı veliyle paylaşılacak."
+      </div>
+
+      <button class="form-btn" style="margin-top:14px;background:#16a34a">📊 Karneye İşle (otomatik güncelleme)</button>
+    </div>
+
+    <h3>🔗 Karneye Yansıma Akışı</h3>
+    <div class="karne-bridge">
+      <h4>Özel ders → Karne otomatik bağlantı</h4>
+      <p>Antrenör "Karneye İşle" der → sistem 3 yere otomatik yansıma yapar:</p>
+      <ol style="font-size:13px;line-height:1.6;color:#1a2233;margin:8px 0;padding-left:22px">
+        <li><strong>Karne'deki "Özel Ders Geçmişi" tablosu</strong> — yeni satır eklenir (tarih, antrenör, konu, süre, sonuç rozeti)</li>
+        <li><strong>İlgili 4-corner yıldız puanı</strong> güncellenir (özel ders puanı %50 ağırlıkla katkı verir, son 30 gün ağırlığı korunur)</li>
+        <li><strong>Bireysel hedef tablosu</strong> — eğer hedefe yaklaştıysa (örn. sürat 4.62→4.55), o satıra "↑ İyileşme" işareti gelir</li>
+      </ol>
+      <div class="formula">
+        <strong>Karne formülü güncellemesi:</strong><br>
+        Yeni puan = (Antrenman puanları × 0.6) + (Maç puanları × 0.3) + <strong>(Özel ders puanları × 0.1)</strong><br>
+        Eksik kapatıldıysa: ilgili beceri yanında <strong>✅ rozeti</strong> görünür<br>
+        Devam ediyorsa: <strong>🔄 rozeti</strong> + sonraki seans takvimde
+      </div>
+      <p style="margin-top:10px"><strong>Veli için sonuç:</strong> 3 ayda bir karne çıktığında özel ders geçmişi, antrenör adları, ödediği ücret karşılığı somut gelişim gözlenir. Kulüp şeffaflık sağlar.</p>
+    </div>
+
+    <p style="margin-top:18px;font-size:11.5px;color:#cdd9e6;font-style:italic;text-align:center">📌 Bu mockup gerçek ürünün <strong>özel ders yönetim akışıdır</strong>. Sunucu uygulamasında: WhatsApp Business API + Celery beat öneri job + antrenör müsaitlik takvimi + ücret/tahsilat backend'i devreye girer.</p>
   </div>
 </section>
 
