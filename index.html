@@ -593,6 +593,61 @@ details.session-detail[open] summary::before{transform:rotate(90deg)}
 .outcome-toggle button.selected.kismen{background:#fef3c7;border-color:#f59e0b;color:#92400e}
 .outcome-toggle button.selected.devam{background:#fee2e2;border-color:#dc2626;color:#7f1d1d}
 
+/* CROSS MODULES (6. tab — yaş-bağımsız uzmanlık alanları) */
+.cross-intro{background:linear-gradient(135deg,#0a3d62 0%,#1e6091 100%);color:#fff;padding:18px 20px;border-radius:12px;margin-bottom:18px}
+.cross-intro h2{margin:0 0 6px;font-size:20px;color:#fff}
+.cross-intro p{margin:6px 0 0;color:#cde3f5;font-size:13.5px;line-height:1.6}
+.cross-nav{display:flex;gap:6px;overflow-x:auto;padding:8px;background:#f0f4f8;border-radius:10px;margin:0 0 18px;scrollbar-width:none;position:sticky;top:54px;z-index:8}
+.cross-nav::-webkit-scrollbar{display:none}
+.cross-tab{flex-shrink:0;padding:10px 14px;font-size:13px;font-weight:600;color:#5b6b80;background:#fff;border:1px solid #e3e8ef;border-radius:8px;cursor:pointer;white-space:nowrap;transition:.15s}
+.cross-tab:hover{border-color:#1e6091;color:#0a3d62}
+.cross-tab.active{background:#0a3d62;color:#fff;border-color:#0a3d62}
+.cross-section{display:none}
+.cross-section.active{display:block;animation:fadeInCross .25s}
+@keyframes fadeInCross{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* Beslenme — tabak modeli görsel kartları */
+.plate-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:14px 0}
+@media(min-width:720px){.plate-grid{grid-template-columns:1fr 1fr}}
+.plate-card{background:#fff;border:1px solid #e3e8ef;border-radius:10px;padding:14px}
+.plate-card h4{margin:0 0 8px;color:#0a3d62;font-size:14px}
+.plate-card .swatch{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:middle;margin-right:6px}
+.plate-card .legend{font-size:12.5px;line-height:1.6;color:#3b4a5e}
+.plate-card .legend div{padding:3px 0}
+
+/* Yiyecek kütüphanesi (3 sütun) */
+.food-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+@media(max-width:680px){.food-grid{grid-template-columns:1fr}}
+.food-col{padding:12px;border-radius:8px;font-size:12.5px}
+.food-col h5{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.3px}
+.food-col ul{margin:4px 0 0;padding-left:18px}
+.food-col li{margin:3px 0}
+.food-col.green{background:#f0fdf4;border-left:4px solid #16a34a}
+.food-col.green h5{color:#15803d}
+.food-col.yellow{background:#fffaeb;border-left:4px solid #f59e0b}
+.food-col.yellow h5{color:#a25c00}
+.food-col.red{background:#fef2f2;border-left:4px solid #dc2626}
+.food-col.red h5{color:#991b1b}
+
+/* Antrenman günü timeline */
+.timeline{margin:14px 0;padding:0;list-style:none;border-left:3px solid #1e6091;padding-left:18px}
+.timeline li{margin:0 0 14px;padding-left:6px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-26px;top:6px;width:11px;height:11px;border-radius:50%;background:#1e6091;border:2px solid #fff;box-shadow:0 0 0 1px #1e6091}
+.timeline li.peak::before{background:#dc2626;box-shadow:0 0 0 1px #dc2626}
+.timeline .ti-time{font-size:11px;font-weight:700;color:#1e6091;letter-spacing:.5px}
+.timeline li.peak .ti-time{color:#dc2626}
+.timeline .ti-title{font-weight:700;color:#0a3d62;font-size:14px;margin:2px 0}
+.timeline .ti-desc{font-size:12.5px;color:#3b4a5e;line-height:1.5}
+.timeline .ti-desc strong{color:#0a3d62}
+
+/* Yaş bandı kartları (modül içi alt segmentler) */
+.age-band{background:#fff;border:1px solid #e3e8ef;border-radius:10px;padding:14px;margin:10px 0}
+.age-band > .lbl{display:inline-block;background:#0a3d62;color:#fff;padding:3px 10px;border-radius:14px;font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.age-band h4{margin:4px 0 8px;color:#0a3d62;font-size:15px}
+.age-band ul{margin:6px 0;padding-left:20px;font-size:13px}
+.age-band ul li{margin:3px 0}
+.age-band .note{background:#fffaeb;border-left:3px solid #f59e0b;padding:8px 10px;font-size:12.5px;border-radius:4px;margin-top:8px;line-height:1.5}
+
 /* FOOT */
 footer{background:#0a3d62;color:#cdd9e6;padding:30px 16px 40px;margin-top:40px;font-size:13px;line-height:1.6}
 footer h4{color:#fff;margin:0 0 8px;font-size:14px}
@@ -631,6 +686,9 @@ footer a{color:#7fb3d5}
     </button>
     <button class="tab" data-tab="u16">
       <span class="em">🔴</span>U16-U18<br><small>14-18 yaş</small>
+    </button>
+    <button class="tab" data-tab="cross">
+      <span class="em">🧬</span>Çapraz<br><small>Modüller</small>
     </button>
   </div>
 </nav>
@@ -5665,6 +5723,673 @@ footer a{color:#7fb3d5}
 
 </section>
 
+<!-- ============== ÇAPRAZ MODÜLLER (6. tab) ============== -->
+<section class="section" id="sec-cross">
+
+<div class="cross-intro">
+  <h2>🧬 Çapraz Modüller — Yaş Bağımsız Uzmanlık Alanları</h2>
+  <p><strong>5 yaş grubu programının üzerine inşa edilen 6 uzmanlık modülü:</strong> her modül kendi içinde yaş bantlarına göre uyarlanmıştır. Antrenör hangi yaş grubunda çalışırsa çalışsın, ihtiyaç duyduğunda bu modüllerden referans alır. Modüller bağımsız okunabilir; ancak en iyi sonucu yaş grubu programıyla <em>birlikte</em> uygulandığında verir.</p>
+</div>
+
+<nav class="cross-nav">
+  <button class="cross-tab active" data-cross="beslenme">🥗 Beslenme</button>
+  <button class="cross-tab" data-cross="kaleci">🥅 Kalecilik</button>
+  <button class="cross-tab" data-cross="offseason">🌴 Sezon Dışı</button>
+  <button class="cross-tab" data-cross="rtp">🩹 Return to Play</button>
+  <button class="cross-tab" data-cross="pozisyon">📍 Pozisyon-Özel</button>
+  <button class="cross-tab" data-cross="futsal">🏟️ Futsal/İç Saha</button>
+</nav>
+
+<!-- ============================================================== -->
+<!-- MODÜL 1: SPORCU BESLENMESİ                                    -->
+<!-- ============================================================== -->
+<div class="cross-section active" id="cross-beslenme">
+
+<div class="summary-card">
+  <h2>🥗 Sporcu Beslenmesi — Yaş Bandı Programı</h2>
+  <div class="meta">
+    <span class="chip">U6-U18</span>
+    <span class="chip">Diyetisyen + Antrenör ortak</span>
+    <span class="chip warn">Veli onaylı</span>
+    <span class="chip">3 yaş bandı uyarlaması</span>
+  </div>
+  <p><strong>Felsefe:</strong> Çocuk sporcuda beslenme <em>diyet değil, gelişim altyapısıdır</em>. Hedef: doğru zamanda doğru makro/mikro + güvenli hidrasyon + ömür boyu sürecek sağlıklı yeme alışkanlığı. <strong>Asla:</strong> kilo verme programı, takviye baskısı, yaşa uygun olmayan protein dozları, "yetişkin sporcu" protokolünün çocuğa kopyalanması, performans için yeme bozukluğu riski.</p>
+</div>
+
+<h3>Yaş Bandı Beslenme Özellikleri</h3>
+<div class="box">
+  <h4>👶 Bant 1 — U6-U10 (Büyüme + Keşif)</h4>
+  <ul>
+    <li>Vücut ağırlığına göre kalori ihtiyacı yüksek (60-80 kcal/kg/gün), ama mide hacmi küçük → <strong>ara öğün şart</strong> (3 ana + 2 ara)</li>
+    <li>Demir, kalsiyum, D vitamini eksiklikleri yaygın; omega-3 yetersizliği DEHA gelişimini etkiler</li>
+    <li>"Yeme reddi" normaldir — aile sofrası kuralı, asla zorlama, asla "bitir" baskısı</li>
+    <li>Tat keşfi dönemi → yeni yiyecekleri 8-15 kez sun, vazgeçme</li>
+    <li>Su tüketimi alışkanlığı bu yaşta yerleşir — antrenmana matara ile gelir</li>
+  </ul>
+  <h4>🧒 Bant 2 — U12-U14 (Foundation/Skill + Adolesan başlangıç)</h4>
+  <ul>
+    <li>Hızlı boy uzaması (10-12 cm/yıl mümkün) → kalori + protein + kalsiyum sıçraması</li>
+    <li>Kız sporcularda menstrüel başlangıç → demir kaybı; demir testi + folik asit takibi</li>
+    <li>Hidrasyon ihtiyacı katlanır (terleme yetişkin seviyesine ulaşır)</li>
+    <li>Beden imajı kaygıları başlar — diyet/aşırı yeme riski; antrenör + veli dikkatli olmalı</li>
+    <li>"Cebimde para var" dönemi — fast food, gazlı içecek riski yüksek; cep harçlığı kuralı</li>
+  </ul>
+  <h4>🧑 Bant 3 — U16-U18 (Performance/Elite + Yetişkin geçişi)</h4>
+  <ul>
+    <li>Yetişkin makro paylaşımına geçiş; antrenman yoğunluğuna göre periyodize beslenme</li>
+    <li>Antrenman içi/sonrası protein ve karbonhidrat senkronu (anabolik pencere) işlevsel</li>
+    <li>Kafein farkındalığı (kahve, enerji içeceği) — 18 altı için günlük üst sınır 100 mg</li>
+    <li>Kreatin, yüksek doz protein tozu vb. <strong>16 yaş altı önerilmez</strong>; 16+ için sadece diyetisyen kontrolünde</li>
+    <li>Sınav + antrenman çakışması → uyku-yemek-akademik üçgeninin dengelenmesi</li>
+  </ul>
+</div>
+
+<h3>Beslenme Hedefleri (Detaylı)</h3>
+<div class="box tinted">
+  <h4>⚡ Enerji Dengesi</h4>
+  <ul>
+    <li>Çocuk sporcu = günde 1800-3500 kcal (yaş, cinsiyet, antrenman yüküne göre)</li>
+    <li>Negatif enerji dengesi (yetersiz kalori) = büyüme duraklaması + yaralanma riski</li>
+    <li>Pozitif denge "kontrolsüz" = obezite riski (özellikle off-season döneminde)</li>
+    <li><strong>Ölçüm:</strong> aylık boy-kilo, BMI persentil takibi (WHO çocuk büyüme eğrisi)</li>
+  </ul>
+  <h4>🥖 Makro Paylaşımı (CHO / Protein / Yağ)</h4>
+  <ul>
+    <li><strong>Karbonhidrat (CHO):</strong> %50-60 — ana yakıt; tam tahıl, bulgur, makarna, ekmek, meyve, baklagil</li>
+    <li><strong>Protein:</strong> %15-20 — büyüme + kas onarımı; et, balık, tavuk, yumurta, süt, baklagil. Hedef: 1.2-1.6 g/kg/gün (U14+)</li>
+    <li><strong>Yağ:</strong> %25-30 — hormon, omega-3; zeytinyağı, fındık, balık, avokado. Trans yağ yasak.</li>
+  </ul>
+  <h4>💎 Mikro Besinler (Kritik 6)</h4>
+  <ul>
+    <li><strong>Demir:</strong> oksijen taşıma; kırmızı et, baklagil, koyu yeşil sebze + C vit ile birlikte</li>
+    <li><strong>Kalsiyum + D vitamini:</strong> kemik gelişimi; süt, yoğurt, peynir, güneş (D vit)</li>
+    <li><strong>Omega-3 (EPA/DHA):</strong> beyin + iltihap kontrolü; haftada 2x balık (somon, hamsi, sardalya)</li>
+    <li><strong>Magnezyum + Çinko:</strong> kas kasılması, bağışıklık; tam tahıl, fındık, kabak çekirdeği</li>
+    <li><strong>B12 + Folik asit:</strong> kan yapımı; et + yumurta + yeşillik (vegan sporcu için takviye gerekebilir)</li>
+  </ul>
+  <h4>💧 Hidrasyon</h4>
+  <ul>
+    <li>Genel hedef: 1.5-2.5 L/gün (yaş + antrenman yoğunluğuna göre)</li>
+    <li><strong>Antrenman öncesi 2 saat:</strong> 400-600 ml su</li>
+    <li><strong>Antrenman içi:</strong> her 15-20 dk 100-200 ml su (sıcak havada elektrolit eklenir)</li>
+    <li><strong>Antrenman sonrası:</strong> kaybedilen kilonun 1.5 katı sıvı (1 kg = 1.5 L)</li>
+    <li><strong>İdrar rengi kuralı:</strong> açık sarı = ideal, koyu sarı/turuncu = dehidrate</li>
+    <li>Gazlı içecek, enerji içeceği, hazır meyve suyu hidrasyon değildir</li>
+  </ul>
+</div>
+
+<h3>Antrenman Günü Beslenme Yapısı (Saatlik)</h3>
+<p class="intro">Saat 17:00'de antrenmanı olan U12 sporcusu için <strong>örnek günlük akış</strong>. Diğer saatler için göreli ayarlanır (T-X = antrenmandan X saat önce).</p>
+<ul class="timeline">
+  <li>
+    <div class="ti-time">07:00 · KAHVALTI</div>
+    <div class="ti-title">Tam tahıllı + protein + meyve</div>
+    <div class="ti-desc">Yulaf + süt + bal + muz + ceviz · veya: tam tahıl ekmek + peynir + zeytin + domates + 1 yumurta. <strong>Önemli:</strong> Şekerli kahvaltı gevreği değil.</div>
+  </li>
+  <li>
+    <div class="ti-time">10:00 · OKUL ARA ÖĞÜN</div>
+    <div class="ti-title">Hafif, taşınabilir, hızlı enerji</div>
+    <div class="ti-desc">1 meyve (elma/muz) + 8-10 fındık · veya: 1 dilim tam tahıl ekmek + peynir. Su.</div>
+  </li>
+  <li>
+    <div class="ti-time">12:30 · ÖĞLE (T-4.5)</div>
+    <div class="ti-title">Ana öğün — tam denge</div>
+    <div class="ti-desc">Mercimek çorbası + tavuk/balık + bulgur pilavı + sebze + ayran · veya makarna + sebzeli sos + salata + yoğurt. Hafif yağ, baharat ölçülü.</div>
+  </li>
+  <li>
+    <div class="ti-time">15:30 · OKUL ÇIKIŞI / T-1.5</div>
+    <div class="ti-title">Pre-workout snack</div>
+    <div class="ti-desc">Hızlı sindirim CHO + az protein. <strong>Örnek:</strong> 1 muz + 1 dilim ballı ekmek · veya 1 simit + ayran. Su 300 ml. <em>Yağlı/lifli ağır yemek YOK</em> (sindirim ağırlığı yapar).</div>
+  </li>
+  <li>
+    <div class="ti-time">16:30 · T-30 dk</div>
+    <div class="ti-title">Son su + minimal CHO</div>
+    <div class="ti-desc">200 ml su · isteğe bağlı 1 hurma. Mide doldurulmaz.</div>
+  </li>
+  <li>
+    <div class="ti-time">17:00-18:30 · ANTRENMAN</div>
+    <div class="ti-title">İçeride: sadece su (+ uzun seans için elektrolit)</div>
+    <div class="ti-desc">Her 15-20 dk 100-200 ml su. 90 dk üzeri veya sıcak hava: ev yapımı sporcu içeceği (1 L su + 1 yk şeker + 1 tutam tuz + 1/2 limon). Şekerli/gazlı içecek yasak.</div>
+  </li>
+  <li class="peak">
+    <div class="ti-time">18:30 · ANABOLİK PENCERE (T+0)</div>
+    <div class="ti-title">⚡ Recovery Snack — 30 dk içinde</div>
+    <div class="ti-desc"><strong>Süt + meyve + bal</strong> (CHO:Protein 3:1 oranı) en pratik. Alternatif: ayran + simit/peynirli poğaça · çikolatalı süt + muz · yoğurt + bal + yulaf. <strong>Bu pencere büyüme + iyileşme için kritik.</strong></div>
+  </li>
+  <li>
+    <div class="ti-time">19:30 · AKŞAM YEMEĞİ</div>
+    <div class="ti-title">Tam onarım öğünü</div>
+    <div class="ti-desc">Tam protein (et/balık/tavuk/baklagil) + kompleks CHO (pilav/makarna/patates) + sebze + ayran/yoğurt. Tatlı isteği olursa: meyveli yoğurt veya hurma.</div>
+  </li>
+  <li>
+    <div class="ti-time">21:30 · YATMADAN ÖNCE</div>
+    <div class="ti-title">Gece onarımı</div>
+    <div class="ti-desc">1 bardak süt + 1 hurma veya 1 dilim peynir. Kazein protein gece kas onarımına yardımcı. Şeker / kafein YOK.</div>
+  </li>
+  <li>
+    <div class="ti-time">22:30 · UYKU</div>
+    <div class="ti-title">😴 Büyüme hormonu salınımı</div>
+    <div class="ti-desc">U6-U10: 10-11 saat · U12-U14: 9-10 saat · U16-U18: 8-9 saat. <strong>Uyku = en önemli "besin"</strong>. Yetersiz uyku → yetersiz toparlanma + yaralanma riski.</div>
+  </li>
+</ul>
+
+<h3>Örnek 1 Haftalık Yemek Programı (U12 — 4 antrenman/hafta)</h3>
+<div class="compare">
+<table>
+<thead><tr><th>Gün</th><th>Kahvaltı</th><th>Ara Öğün</th><th>Öğle</th><th>Pre-Workout / Akşam</th></tr></thead>
+<tbody>
+<tr><td><strong>Pazartesi</strong><br><small>Antrenman ✅</small></td><td>Yulaf + süt + muz + bal + ceviz</td><td>Elma + 10 fındık</td><td>Mercimek çorbası + ızgara tavuk + bulgur + salata + ayran</td><td>17:00 simit+ayran · 19:30 köfte+pilav+sebze · 21:30 süt+hurma</td></tr>
+<tr><td><strong>Salı</strong><br><small>Dinlenme</small></td><td>Tam tahıl ekmek + peynir + zeytin + domates + yumurta</td><td>1 meyve + 1 dilim peynir</td><td>Sebzeli makarna + ton balığı salatası + ayran</td><td>19:00 fırın tavuk+patates+brokoli · 21:30 yoğurt+meyve</td></tr>
+<tr><td><strong>Çarşamba</strong><br><small>Antrenman ✅</small></td><td>Menemen + tam tahıl ekmek + meyve</td><td>Yoğurt + bal + yulaf</td><td>Etli nohut + pilav + cacık + havuç</td><td>17:00 muz+ekmek-bal · 19:30 somon+bulgur+sebze · 21:30 süt</td></tr>
+<tr><td><strong>Perşembe</strong><br><small>Dinlenme</small></td><td>Yulaf + meyve + tarçın + süt</td><td>Smoothie (süt+muz+yulaf+1 yk fıstık ezmesi)</td><td>Sebzeli mercimek + tavuk göğsü + bulgur + salata</td><td>19:00 köfte+makarna+sebze · 21:30 1 dilim peynir</td></tr>
+<tr><td><strong>Cuma</strong><br><small>Antrenman ✅</small></td><td>Tam tahıl tost (peynir+domates) + meyve</td><td>1 muz + 8 badem</td><td>Tavuklu pirinç pilavı + cacık + salata</td><td>17:00 simit+ayran · 19:30 balık+patates+sebze · 21:30 süt+hurma</td></tr>
+<tr><td><strong>Cumartesi</strong><br><small>MAÇ 🏆</small></td><td>3 sa öncesi: yulaf+süt+meyve+bal · 1 sa öncesi: 1 muz</td><td>Maç içi: su + ev yapımı sporcu içeceği</td><td><strong>Maç hemen sonrası (T+30):</strong> çikolatalı süt + simit</td><td>19:30 makarna+köfte+sebze · 21:30 yoğurt+meyve</td></tr>
+<tr><td><strong>Pazar</strong><br><small>Aile günü</small></td><td>Geleneksel Türk kahvaltısı (zeytin, peynir, domates, salatalık, yumurta, tam tahıl ekmek, bal-tahin)</td><td>Mevsim meyvesi</td><td>Aile yemeği — ev usulü, dengeli (et+pilav+sebze+ayran)</td><td>Hafif akşam: çorba + salata + 1 dilim ekmek-peynir</td></tr>
+</tbody>
+</table>
+</div>
+<p class="intro" style="font-size:12.5px;color:#5b6b80"><em>Not:</em> Bu menü <strong>örnektir</strong>; alerji, dini gereksinim (helal/oruç), bütçe, bölgesel mutfak ve sporcunun yeme tercihlerine göre uyarlanır. Diyetisyen onayı gerekir.</p>
+
+<h3>Antrenör Saha Cue'ları (Beslenme Eğitimi)</h3>
+<div class="box tinted">
+  <h4>🎯 5 Sahada Söylenen Cümle</h4>
+  <ol>
+    <li><strong>"Matarasız sahaya çıkılmaz."</strong> — Antrenör kontrolü zorunlu. Matarasız gelen → kenardan izler.</li>
+    <li><strong>"Aç gelme, ağır gelme."</strong> — Antrenmandan 30 dk önce 1 muz/simit; 2 saat öncesinde son ana öğün.</li>
+    <li><strong>"Antrenman bitince ilk 30 dk en önemli."</strong> — Çantanda hep 1 muz + ayran/süt olmalı.</li>
+    <li><strong>"Gazlı içecek = enerjisizlik."</strong> — Çekim 5 dk, çöküş 60 dk. Antrenmanın düşmanı.</li>
+    <li><strong>"Su rengin söyler."</strong> — İdrar açık sarı = iyi, koyu = içmedin yeterince.</li>
+  </ol>
+  <h4>🚫 5 Sahada Asla Söylenmeyecek Cümle</h4>
+  <ol>
+    <li><strong>"Şişmansın, kilo ver."</strong> — Çocuk sporcuda yeme bozukluğu tetiklenir. Sadece diyetisyen değerlendirir.</li>
+    <li><strong>"X protein tozunu kullan."</strong> — Antrenör takviye önermez. Yasal/etik sorun.</li>
+    <li><strong>"Yarın maç var, fazla ye."</strong> — Yığma yeme sindirimi bozar. Normal porsiyon, kompleks CHO.</li>
+    <li><strong>"Kahvaltı yapma, hafif ol."</strong> — Açlık antrenman performansını yıkar, baş dönmesi → yaralanma.</li>
+    <li><strong>"Su iç, ama maç esnasında değil."</strong> — Eski mit. Su ihtiyaç oldukça içilir.</li>
+  </ol>
+</div>
+
+<h3>Alternatif Beslenme Yaklaşımları (Kaynak Karşılaştırma)</h3>
+<p class="intro">4 yaklaşım — farklı felsefelerden derlenmiştir. Akademi hangi yapıya, hangi bölgeye, hangi hedef kitleye sahipse uygun olanı seçer (veya harmanlar). <strong>"Bu Yaklaşımı Seç"</strong> butonu seçimi yerel olarak kaydeder.</p>
+
+<div class="approach-grid">
+  <div class="approach" data-approach="bozkurt-beslenme">
+    <div class="src">YAKLAŞIM 1 · GELENEKSEL TÜRK MUTFAĞI</div>
+    <h4>Bozkurt Modeli — Ev Yemeği Öncelikli</h4>
+    <div class="phil">"Anaokulu sofrası en iyi sporcu sofrasıdır. Çorba, et, pilav, sebze, ayran — Anadolu mutfağı zaten dengelidir."</div>
+
+    <div class="lbl">Felsefe</div>
+    <ul>
+      <li>Hazır gıda yok; her öğün evde pişirilir</li>
+      <li>Tabak modeli: 1/4 protein + 1/4 CHO + 1/2 sebze (ev tabağına uyarlanır)</li>
+      <li>Ayran + cacık birincil sıvı; süt-yoğurt günlük</li>
+      <li>Hafta sonu aile yemeği = sosyal-duygusal bağ</li>
+    </ul>
+
+    <div class="lbl">Haftalık Yapı</div>
+    <ul>
+      <li><strong>Et/balık:</strong> haftada 4-5 öğün (kırmızı et 1-2, beyaz et 2-3)</li>
+      <li><strong>Çorba:</strong> her ana öğünde başlangıç</li>
+      <li><strong>Sebze:</strong> her öğünde, mevsiminde</li>
+      <li><strong>Tatlı:</strong> haftada 1 (ev yapımı, sütlü)</li>
+    </ul>
+
+    <div class="lbl pro">Güçlü Yönü</div>
+    <ul><li>Aile bağı + sürdürülebilir</li><li>Bütçe dostu, doğal</li><li>Sporcu kimliği zorlanmadan oluşur</li></ul>
+
+    <div class="lbl con">Sınırlı Yanı</div>
+    <ul><li>Modern antrenman periyodizasyonuna uyumu zayıf</li><li>Anabolik pencere senkronu yetersiz</li></ul>
+
+    <div class="who">👤 <strong>Kime uygun:</strong> U6-U12 yaş grubu, Anadolu kulüpleri, geleneksel aile yapıları. "Zorlanmadan sporcu yetiştirme" felsefesi.</div>
+
+    <button class="btn-select" onclick="selectApproach(this,'bozkurt-beslenme')">Bu Yaklaşımı Seç</button>
+  </div>
+
+  <div class="approach" data-approach="aslan-beslenme">
+    <div class="src">YAKLAŞIM 2 · AKDENİZ SPORCU MODELİ</div>
+    <h4>Aslan Modeli — Akdeniz Diyeti Adapte</h4>
+    <div class="phil">"Bilimsel olarak en sağlıklı diyet Akdeniz'dir. Zeytinyağı, balık, sebze, baklagil — sporcuya uyarlandığında ideal."</div>
+
+    <div class="lbl">Felsefe</div>
+    <ul>
+      <li>Tek doymamış yağ (zeytinyağı) ana yağ kaynağı</li>
+      <li>Haftada 2x balık (omega-3 odaklı: somon, sardalya, hamsi, palamut)</li>
+      <li>Kırmızı et haftada en fazla 1 kez; beyaz et + baklagil ağırlıklı</li>
+      <li>Tam tahıl + meyve + sebze günlük 5 porsiyon</li>
+    </ul>
+
+    <div class="lbl">Haftalık Yapı</div>
+    <ul>
+      <li><strong>Balık:</strong> Pazartesi + Perşembe (ızgara/fırın)</li>
+      <li><strong>Baklagil:</strong> haftada 3 öğün</li>
+      <li><strong>Yumurta:</strong> günde 1 (haftada 6-7)</li>
+      <li><strong>Şarap-alkol:</strong> sporcuda yok (yetişkin Akdeniz'inden ayrılır)</li>
+    </ul>
+
+    <div class="lbl pro">Güçlü Yönü</div>
+    <ul><li>İltihap düşürür, toparlanmayı hızlandırır</li><li>Kardiyovasküler avantaj</li><li>Bilim destekli</li></ul>
+
+    <div class="lbl con">Sınırlı Yanı</div>
+    <ul><li>Türkiye'nin iç bölgelerinde balık ulaşımı zor/pahalı</li><li>Çocuk balık sevmiyorsa zorluk</li></ul>
+
+    <div class="who">👤 <strong>Kime uygun:</strong> Sahil bölgesi kulüpleri (İzmir, Antalya, İstanbul kıyı), bilimsel yaklaşımı önemseyen aileler. U10+.</div>
+
+    <button class="btn-select" onclick="selectApproach(this,'aslan-beslenme')">Bu Yaklaşımı Seç</button>
+  </div>
+
+  <div class="approach" data-approach="atilla-beslenme">
+    <div class="src">YAKLAŞIM 3 · PERFORMANS BAZLI</div>
+    <h4>Atilla Yüce Modeli — Periyodize Beslenme</h4>
+    <div class="phil">"Antrenman periyoduna göre beslenme periyodize edilir. Hazırlık döneminde CHO yüksek, müsabaka döneminde protein/onarım odaklı."</div>
+
+    <div class="lbl">Felsefe</div>
+    <ul>
+      <li>Makro hesabı: g/kg/gün cinsinden hedeflenir</li>
+      <li>Antrenman içi & sonrası timing kritik (anabolik pencere)</li>
+      <li>Sezon başı / orta / sonu farklı menüler</li>
+      <li>Ölçüm + kayıt + uyarlama döngüsü (3 ayda bir kan testi)</li>
+    </ul>
+
+    <div class="lbl">Periyot Yapısı</div>
+    <ul>
+      <li><strong>Hazırlık (Eyl-Kas):</strong> CHO 6-7 g/kg, kas inşası</li>
+      <li><strong>Müsabaka (Ara-Mar):</strong> CHO 5-6 g/kg, protein 1.4-1.6 g/kg, recovery odak</li>
+      <li><strong>Geçiş (Nis-Haz):</strong> CHO 4-5 g/kg, kilo kontrol, çeşitlilik</li>
+    </ul>
+
+    <div class="lbl pro">Güçlü Yönü</div>
+    <ul><li>Performans pikleri planlanır</li><li>Ölçülebilir gelişim</li><li>Profesyonel hazırlık</li></ul>
+
+    <div class="lbl con">Sınırlı Yanı</div>
+    <ul><li>16 yaş altında "fazla bilimsel" → çocuk yorgunluğu</li><li>Yeme bozukluğu riski; sıkı denetim gerekir</li><li>Diyetisyen + lab erişimi şart</li></ul>
+
+    <div class="who">👤 <strong>Kime uygun:</strong> U16-U18 elit altyapı, profesyonel kulüp akademisi, ulusal takım kampı.</div>
+
+    <button class="btn-select" onclick="selectApproach(this,'atilla-beslenme')">Bu Yaklaşımı Seç</button>
+  </div>
+
+  <div class="approach" data-approach="yuce-beslenme">
+    <div class="src">YAKLAŞIM 4 · ESNEK / SEZGİSEL</div>
+    <h4>Yüce-Ediz Modeli — Açlık-Tokluk Farkındalığı</h4>
+    <div class="phil">"Yasak yok. Çocuk açlığını ve tokluğunu öğrensin. Bilinçli yiyebilen sporcu, ömür boyu sağlıklı kalır."</div>
+
+    <div class="lbl">Felsefe</div>
+    <ul>
+      <li>"Yasaklı yiyecek" yok — ama "her gün değil" alışkanlığı</li>
+      <li>Çocuk tabağına kendi koyar (porsiyon kontrolü kazanır)</li>
+      <li>"İçimden geçti" yiyeceği haftada 2 kez serbest</li>
+      <li>Aile sofrası kuralı: ekran yok, konuşarak yenir</li>
+    </ul>
+
+    <div class="lbl">Uygulama</div>
+    <ul>
+      <li>Antrenmandan önce: "ne istersen, ama ağır olma" rehberi</li>
+      <li>Antrenmandan sonra: tatmin edici öğün (zorlamasız)</li>
+      <li>Arkadaşıyla pizza yemek = sosyal yaşam, yasaklanmaz</li>
+      <li>Yiyecek günlüğü değil — duygu günlüğü ("aç mıydım, sıkıldım mı?")</li>
+    </ul>
+
+    <div class="lbl pro">Güçlü Yönü</div>
+    <ul><li>Yeme bozukluğu riski en düşük</li><li>Sosyal yaşam korunur</li><li>Uzun vadeli alışkanlık</li></ul>
+
+    <div class="lbl con">Sınırlı Yanı</div>
+    <ul><li>Disiplinsiz çocukta savruluk</li><li>Yüksek yoğunluklu antrenman dönemlerinde performans çatlağı</li></ul>
+
+    <div class="who">👤 <strong>Kime uygun:</strong> U6-U14 hobbi düzeyi sporcular, beden imajı kaygısı geçmişi olan aileler, "futbol = yaşam değil, parça" felsefesi.</div>
+
+    <button class="btn-select" onclick="selectApproach(this,'yuce-beslenme')">Bu Yaklaşımı Seç</button>
+  </div>
+</div>
+
+<h3>Yaklaşım Karşılaştırma Tablosu</h3>
+<div class="compare">
+<table>
+<thead><tr><th>Boyut</th><th>Bozkurt (Türk Mutfağı)</th><th>Aslan (Akdeniz)</th><th>Atilla (Periyodize)</th><th>Yüce-Ediz (Esnek)</th></tr></thead>
+<tbody>
+<tr><td>Yaş Hedefi</td><td>U6-U12</td><td>U10+</td><td>U16-U18</td><td>U6-U14</td></tr>
+<tr><td>Bilimsel Yoğunluk</td><td>Düşük</td><td>Orta</td><td>Yüksek</td><td>Düşük-Orta</td></tr>
+<tr><td>Kayıt/Ölçüm</td><td>Az</td><td>Orta</td><td>Yoğun</td><td>Yok</td></tr>
+<tr><td>Bütçe</td><td>Düşük</td><td>Orta-Yüksek</td><td>Yüksek</td><td>Esnek</td></tr>
+<tr><td>Aile Bağı</td><td>Çok güçlü</td><td>Güçlü</td><td>Orta</td><td>Çok güçlü</td></tr>
+<tr><td>Yeme Bozukluğu Riski</td><td>Düşük</td><td>Düşük</td><td>Orta-Yüksek</td><td>Çok düşük</td></tr>
+<tr><td>Performans Optimizasyonu</td><td>Orta</td><td>İyi</td><td>Çok iyi</td><td>Sınırlı</td></tr>
+<tr><td>Sürdürülebilirlik</td><td>Çok iyi</td><td>İyi</td><td>Orta</td><td>Çok iyi</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Tabak Modeli + Hidrasyon Görselleri</h3>
+<div class="plate-grid">
+
+  <div class="plate-card">
+    <h4>🍽️ Sporcu Tabak Modeli (Antrenman Günü Öğle/Akşam)</h4>
+    <svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="170" cy="120" r="100" fill="#fff" stroke="#0a3d62" stroke-width="3"/>
+      <path d="M 170,120 L 170,20 A 100,100 0 0,1 256.6,170 Z" fill="#7fb069" opacity="0.85"/>
+      <path d="M 170,120 L 256.6,170 A 100,100 0 0,1 113.4,205 Z" fill="#fcd34d" opacity="0.85"/>
+      <path d="M 170,120 L 113.4,205 A 100,100 0 0,1 70,120 L 170,120 Z" fill="#dc8a52" opacity="0.85"/>
+      <path d="M 170,120 L 70,120 A 100,100 0 0,1 170,20 Z" fill="#ef6c4d" opacity="0.85"/>
+      <text x="200" y="65" font-size="11" fill="#0a3d62" font-weight="700">SEBZE</text>
+      <text x="195" y="80" font-size="9" fill="#0a3d62">%40</text>
+      <text x="195" y="155" font-size="11" fill="#0a3d62" font-weight="700">CHO</text>
+      <text x="195" y="170" font-size="9" fill="#0a3d62">%30</text>
+      <text x="125" y="170" font-size="11" fill="#fff" font-weight="700">PROTEIN</text>
+      <text x="135" y="183" font-size="9" fill="#fff">%20</text>
+      <text x="105" y="80" font-size="11" fill="#fff" font-weight="700">MEYVE</text>
+      <text x="115" y="93" font-size="9" fill="#fff">%10</text>
+      <circle cx="285" cy="60" r="20" fill="#fff" stroke="#1e6091" stroke-width="2"/>
+      <text x="285" y="64" text-anchor="middle" font-size="9" fill="#1e6091" font-weight="700">SÜT/</text>
+      <text x="285" y="74" text-anchor="middle" font-size="9" fill="#1e6091" font-weight="700">AYRAN</text>
+    </svg>
+    <div class="legend">
+      <div><span class="swatch" style="background:#7fb069"></span><strong>Sebze (%40):</strong> mevsim, çiğ + pişmiş karışık</div>
+      <div><span class="swatch" style="background:#fcd34d"></span><strong>CHO (%30):</strong> bulgur, makarna, pirinç, ekmek</div>
+      <div><span class="swatch" style="background:#dc8a52"></span><strong>Protein (%20):</strong> et, balık, tavuk, baklagil, yumurta</div>
+      <div><span class="swatch" style="background:#ef6c4d"></span><strong>Meyve (%10):</strong> mevsim, taze (paket suyu değil)</div>
+      <div><span class="swatch" style="background:#fff;border:1px solid #1e6091"></span><strong>Yan:</strong> 1 bardak süt/ayran/yoğurt</div>
+    </div>
+  </div>
+
+  <div class="plate-card">
+    <h4>💧 Antrenman Günü Hidrasyon Eşiği</h4>
+    <svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="300" height="200" fill="#f8fafc" stroke="#e3e8ef"/>
+      <line x1="40" y1="200" x2="320" y2="200" stroke="#0a3d62" stroke-width="2"/>
+      <line x1="40" y1="40" x2="40" y2="200" stroke="#0a3d62" stroke-width="2"/>
+      <text x="20" y="50" font-size="9" fill="#0a3d62" font-weight="700">L/gün</text>
+      <text x="22" y="200" font-size="9" fill="#0a3d62">0</text>
+      <text x="22" y="160" font-size="9" fill="#0a3d62">1</text>
+      <text x="22" y="120" font-size="9" fill="#0a3d62">2</text>
+      <text x="22" y="80" font-size="9" fill="#0a3d62">3</text>
+      <rect x="60" y="160" width="40" height="40" fill="#7fb069"/>
+      <text x="80" y="218" text-anchor="middle" font-size="9" fill="#0a3d62">Dinlenme</text>
+      <text x="80" y="155" text-anchor="middle" font-size="10" fill="#0a3d62" font-weight="700">1.5L</text>
+      <rect x="120" y="120" width="40" height="80" fill="#fcd34d"/>
+      <text x="140" y="218" text-anchor="middle" font-size="9" fill="#0a3d62">Antrenman</text>
+      <text x="140" y="115" text-anchor="middle" font-size="10" fill="#0a3d62" font-weight="700">2.0L</text>
+      <rect x="180" y="100" width="40" height="100" fill="#fb923c"/>
+      <text x="200" y="218" text-anchor="middle" font-size="9" fill="#0a3d62">Sıcak Hava</text>
+      <text x="200" y="95" text-anchor="middle" font-size="10" fill="#0a3d62" font-weight="700">2.5L</text>
+      <rect x="240" y="80" width="40" height="120" fill="#ef6c4d"/>
+      <text x="260" y="218" text-anchor="middle" font-size="9" fill="#0a3d62">Maç Günü</text>
+      <text x="260" y="75" text-anchor="middle" font-size="10" fill="#0a3d62" font-weight="700">3.0L</text>
+    </svg>
+    <div class="legend">
+      <div><strong>İdrar rengi takibi:</strong> her tuvalete gidişte kontrol</div>
+      <div><span class="swatch" style="background:#fef3c7"></span> Açık sarı = ideal hidrasyon</div>
+      <div><span class="swatch" style="background:#fb923c"></span> Koyu sarı = hemen 500 ml su</div>
+      <div><span class="swatch" style="background:#92400e"></span> Kahverengi/turuncu = ciddi dehidrasyon</div>
+    </div>
+  </div>
+
+  <div class="plate-card">
+    <h4>⚡ Anabolik Pencere (T+0 → T+30 dk)</h4>
+    <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="340" height="200" fill="#fff"/>
+      <line x1="20" y1="160" x2="320" y2="160" stroke="#0a3d62" stroke-width="2"/>
+      <text x="20" y="180" font-size="10" fill="#0a3d62">T+0</text>
+      <text x="100" y="180" font-size="10" fill="#0a3d62">T+30</text>
+      <text x="200" y="180" font-size="10" fill="#0a3d62">T+60</text>
+      <text x="290" y="180" font-size="10" fill="#0a3d62">T+90</text>
+      <path d="M 20,40 Q 70,30 100,55 T 200,120 T 320,150" stroke="#dc2626" stroke-width="3" fill="none"/>
+      <rect x="20" y="20" width="80" height="140" fill="#dc2626" opacity="0.12"/>
+      <text x="60" y="14" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="700">PİK</text>
+      <text x="60" y="100" text-anchor="middle" font-size="9" fill="#0a3d62" font-weight="700">CHO+protein</text>
+      <text x="60" y="113" text-anchor="middle" font-size="9" fill="#0a3d62" font-weight="700">3:1 oranı</text>
+      <circle cx="200" cy="40" r="14" fill="#fcd34d"/>
+      <text x="200" y="44" text-anchor="middle" font-size="11" fill="#0a3d62" font-weight="700">🥛</text>
+      <text x="200" y="20" text-anchor="middle" font-size="9" fill="#0a3d62">Süt+muz</text>
+      <text x="170" y="60" font-size="9" fill="#5b6b80">veya ayran+simit</text>
+    </svg>
+    <div class="legend">
+      <div><strong>İlk 30 dk:</strong> kas glikojen sentezi 3-4x hızlı</div>
+      <div><strong>30-60 dk:</strong> hâlâ etkili, ama düşmeye başlar</div>
+      <div><strong>60+ dk:</strong> normal sindirim, yine de yenmeli</div>
+      <div><strong>Pratik:</strong> antrenman çantasında HER ZAMAN 1 muz + 1 ayran/süt</div>
+    </div>
+  </div>
+
+  <div class="plate-card">
+    <h4>🏆 Maç Günü Beslenme Akışı (T-3 → T+2)</h4>
+    <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="340" height="200" fill="#fff"/>
+      <line x1="20" y1="170" x2="320" y2="170" stroke="#0a3d62" stroke-width="2"/>
+      <line x1="170" y1="30" x2="170" y2="170" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="170" y="22" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="700">⚽ MAÇ</text>
+      <text x="20" y="190" font-size="9" fill="#0a3d62">T-3</text>
+      <text x="80" y="190" font-size="9" fill="#0a3d62">T-2</text>
+      <text x="140" y="190" font-size="9" fill="#0a3d62">T-1</text>
+      <text x="170" y="190" font-size="9" fill="#0a3d62" font-weight="700">T0</text>
+      <text x="220" y="190" font-size="9" fill="#0a3d62">T+1</text>
+      <text x="280" y="190" font-size="9" fill="#0a3d62">T+2</text>
+      <circle cx="40" cy="100" r="18" fill="#7fb069"/>
+      <text x="40" y="105" text-anchor="middle" font-size="14">🍝</text>
+      <text x="40" y="80" text-anchor="middle" font-size="9" fill="#0a3d62" font-weight="700">Ana öğün</text>
+      <text x="40" y="135" text-anchor="middle" font-size="8" fill="#5b6b80">CHO+protein</text>
+      <circle cx="120" cy="100" r="14" fill="#fcd34d"/>
+      <text x="120" y="105" text-anchor="middle" font-size="11">🍌</text>
+      <text x="120" y="80" text-anchor="middle" font-size="9" fill="#0a3d62" font-weight="700">Snack</text>
+      <text x="120" y="135" text-anchor="middle" font-size="8" fill="#5b6b80">muz+ekmek</text>
+      <circle cx="155" cy="100" r="10" fill="#1e6091"/>
+      <text x="155" y="104" text-anchor="middle" font-size="9" fill="#fff">💧</text>
+      <text x="155" y="80" text-anchor="middle" font-size="8" fill="#0a3d62">su</text>
+      <rect x="170" y="92" width="30" height="16" fill="#dc2626" rx="3"/>
+      <text x="185" y="103" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">SADECE SU</text>
+      <circle cx="220" cy="100" r="16" fill="#fb923c"/>
+      <text x="220" y="106" text-anchor="middle" font-size="14">🥛</text>
+      <text x="220" y="80" text-anchor="middle" font-size="9" fill="#0a3d62" font-weight="700">Recovery</text>
+      <text x="220" y="135" text-anchor="middle" font-size="8" fill="#dc2626">İlk 30 dk!</text>
+      <circle cx="290" cy="100" r="18" fill="#7fb069"/>
+      <text x="290" y="106" text-anchor="middle" font-size="14">🍗</text>
+      <text x="290" y="80" text-anchor="middle" font-size="9" fill="#0a3d62" font-weight="700">Akşam</text>
+      <text x="290" y="135" text-anchor="middle" font-size="8" fill="#5b6b80">tam onarım</text>
+    </svg>
+    <div class="legend">
+      <div><strong>T-3:</strong> son ağır öğün (CHO+protein+sebze)</div>
+      <div><strong>T-1:</strong> hafif snack (muz, simit, ayran)</div>
+      <div><strong>T0:</strong> sadece su (mide ağırlığı yapma)</div>
+      <div><strong>T+0.5:</strong> ⚡ recovery (süt+muz veya çikolatalı süt)</div>
+      <div><strong>T+2:</strong> tam akşam yemeği</div>
+    </div>
+  </div>
+
+</div>
+
+<h3>Yiyecek Kütüphanesi (Yeşil / Sarı / Kırmızı)</h3>
+<p class="intro">Üç renkli sınıflandırma — antrenör + veli + sporcu için ortak dil. Renk = sıklık (yasak değil).</p>
+<div class="food-grid">
+  <div class="food-col green">
+    <h5>🟢 YEŞİL — Sınırsız (Günlük)</h5>
+    <ul>
+      <li>Su, ayran (şekersiz), süt, sade yoğurt</li>
+      <li>Tüm taze meyveler (mevsim öncelikli)</li>
+      <li>Tüm taze sebzeler (çiğ + pişmiş)</li>
+      <li>Tam tahıl ekmek, yulaf, bulgur</li>
+      <li>Baklagil (mercimek, nohut, fasulye)</li>
+      <li>Tavuk, hindi, balık (özellikle yağlı: somon, sardalya, hamsi)</li>
+      <li>Yumurta (günde 1)</li>
+      <li>Beyaz peynir, lor, çökelek</li>
+      <li>Zeytin, zeytinyağı</li>
+      <li>Fındık, badem, ceviz (alerji yoksa, günde 10-15 adet)</li>
+      <li>Bal (1 yk/gün), pekmez, tahin</li>
+      <li>Mevsim çorbası (mercimek, ezogelin, sebze)</li>
+    </ul>
+  </div>
+  <div class="food-col yellow">
+    <h5>🟡 SARI — Haftada 2-3 (Sınırlı)</h5>
+    <ul>
+      <li>Kırmızı et (haftada 1-2 kez yeterli)</li>
+      <li>Tam buğday makarna (porsiyon kontrollü)</li>
+      <li>Beyaz pirinç, beyaz ekmek</li>
+      <li>Patates kızartması (fırın tercih)</li>
+      <li>Ev yapımı börek, poğaça, mantı</li>
+      <li>Sade pizza (tam tahıl hamuru, sebzeli)</li>
+      <li>Sade dondurma (haftada 1 küçük top)</li>
+      <li>%100 meyve suyu (günde 1 küçük bardak)</li>
+      <li>Kuru meyve (kayısı, hurma — porsiyon)</li>
+      <li>Helva, lokum, sade pasta (özel günlerde)</li>
+      <li>Beyaz peynirden kaçak, kaşar (tuzlu)</li>
+    </ul>
+  </div>
+  <div class="food-col red">
+    <h5>🔴 KIRMIZI — Önerilmez (Saha düşmanı)</h5>
+    <ul>
+      <li>Gazlı içecek (kola, gazoz, soda + şeker)</li>
+      <li>Enerji içeceği (Red Bull vb.) — 18 yaş altı yasak</li>
+      <li>Hazır meyve suyu kutuları</li>
+      <li>Fast food (hamburger zinciri, kızarmış tavuk büfesi)</li>
+      <li>Paket cipsi, kraker (trans yağ)</li>
+      <li>Hazır kek, çikolatalı bar</li>
+      <li>Sucuk, sosis, salam (işlenmiş et)</li>
+      <li>Şekerli kahvaltı gevreği (Coco Pops vb.)</li>
+      <li>Margarinli mamuller</li>
+      <li>Aşırı kafein (kahve > 1 fincan, çay > 3 bardak)</li>
+      <li><strong>Takviye (16 yaş altı):</strong> kreatin, protein tozu, BCAA, "yağ yakıcı"</li>
+      <li>Diyet ürünleri (light, sıfır kalori) — çocukta ihtiyaç yok</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Yaş Bandı Mikro Uyarlamalar (3 Bant)</h3>
+
+<div class="age-band">
+  <span class="lbl">BANT 1 — U6-U10</span>
+  <h4>Büyüme + Keşif Dönemi Beslenmesi</h4>
+  <ul>
+    <li><strong>Aile sofrası kuralı:</strong> aynı sofrada, aynı yemek, aynı saatte. Çocuk için "özel menü" yok.</li>
+    <li><strong>Porsiyon kuralı:</strong> çocuğun avuç içi = 1 protein porsiyonu, yumruk = 1 CHO porsiyonu.</li>
+    <li><strong>Yeni yiyecek:</strong> reddederse 8-15 kez tekrar sun, sözle baskı yapma.</li>
+    <li><strong>Ara öğün:</strong> 2 ara öğün şart (mide hacmi küçük, enerji ihtiyacı yüksek).</li>
+    <li><strong>Su alışkanlığı:</strong> her çocuğun kendi mataralı çantası, antrenmanda su molası kuralı.</li>
+    <li><strong>Tatlı:</strong> yasak değil, ama ödül olarak kullanılmaz ("aferin tatlı yiyeceksin" yasak).</li>
+    <li><strong>Vitamin takviyesi:</strong> sadece pediatrisyen önerirse (D vit kış aylarında sık).</li>
+  </ul>
+  <div class="note"><strong>Veli için kritik mesaj:</strong> bu yaşta hedef performans değil, sağlıklı yeme alışkanlığı oluşturmak. Antrenör veliye "çocuğunuz iyi besleniyor mu?" değil, "evde nasıl bir sofra düzeniniz var?" diye sorar.</div>
+</div>
+
+<div class="age-band">
+  <span class="lbl">BANT 2 — U12-U14</span>
+  <h4>Adolesan Geçişi + Foundation/Skill</h4>
+  <ul>
+    <li><strong>Hızlı boy uzaması:</strong> kalori ihtiyacı %30 artabilir, "hep aç" normaldir.</li>
+    <li><strong>Demir takibi:</strong> yıllık tam kan + ferritin testi (özellikle kız sporcularda menstrüel başlangıçtan sonra).</li>
+    <li><strong>Kalsiyum + D vit:</strong> kemik kütlesinin %40'ı bu yaşta oluşur — günde 3 porsiyon süt-yoğurt-peynir + güneş.</li>
+    <li><strong>Cep harçlığı kuralı:</strong> aile + sporcu birlikte karar verir; "her gün simit + ayran" kuralı çalışır.</li>
+    <li><strong>Ekran + yemek:</strong> aynı anda yapmaz (porsiyon kontrolünü bozar).</li>
+    <li><strong>Beden imajı:</strong> antrenör asla "kilo verme/almak" konuşması yapmaz; gözlem varsa diyetisyene yönlendirir.</li>
+    <li><strong>Maç günü sabahı:</strong> ilk maç tecrübeleri — "ye-yeme" tartışması yerine standart protokol (3 saat öncesi orta öğün + 1 saat öncesi snack).</li>
+  </ul>
+  <div class="note"><strong>Antrenör için kritik mesaj:</strong> "performans için kilo değiştir" cümlesi bu yaşta yeme bozukluğunu tetikleyebilir. Sadece sağlık ekibi (diyetisyen + pediatrisyen) değerlendirir.</div>
+</div>
+
+<div class="age-band">
+  <span class="lbl">BANT 3 — U16-U18</span>
+  <h4>Performans / Elite + Yetişkin Geçişi</h4>
+  <ul>
+    <li><strong>Periyodize beslenme:</strong> hazırlık / müsabaka / geçiş dönemlerinde farklı makro paylaşımı.</li>
+    <li><strong>Anabolik pencere bilinci:</strong> her antrenman + maç sonrası 30 dk içinde recovery snack standart.</li>
+    <li><strong>Kafein:</strong> günlük üst sınır 100 mg (1 fincan kahve veya 2 bardak çay). Maç günü tartışmalı — diyetisyen kararı.</li>
+    <li><strong>Takviye:</strong> sadece 16+ ve sadece eksikliği kanıtlanmış vitaminler (D vit, B12). Kreatin tartışmalı, asla zorunlu değil.</li>
+    <li><strong>Dış ortam riski:</strong> üniversite/kolej geçişi, evden uzak yaşam — yemek pişirme becerisi öğretilir.</li>
+    <li><strong>Sınav + antrenman çakışması:</strong> uyku-yemek-akademik üçgeni; sınav haftaları antrenman yükü %20 azaltılır.</li>
+    <li><strong>Maç içi sıvı:</strong> 90+ dk ve sıcak hava → ev yapımı sporcu içeceği (1 L su + 30 g şeker + 1 tutam tuz + limon).</li>
+  </ul>
+  <div class="note"><strong>Sporcu için kritik mesaj:</strong> "yetişkin sporcu" ile "elit altyapı" aynı şey değildir. Profesyonelliğin alt başlığı disiplin + kayıt, takviye değil.</div>
+</div>
+
+<h3>Beslenme Karnesi (Aylık Şablon)</h3>
+<p class="intro">U10+ için aylık beslenme değerlendirmesi. Aile + diyetisyen + antrenör ortak okur. Sayısal puan değil — gözlem + öneri formatı.</p>
+<div class="compare">
+<table>
+<thead><tr><th>Boyut</th><th>Hedef</th><th>Bu ay gözlem</th><th>Öneri (gelecek ay)</th></tr></thead>
+<tbody>
+<tr><td>Tabak çeşitliliği (haftada)</td><td>5+ farklı sebze, 3+ farklı meyve</td><td>★★★★☆ (4 sebze, 2 meyve)</td><td>Pazartesi pazardan + 1 yeni sebze (brokoli)</td></tr>
+<tr><td>Su tüketimi (günlük)</td><td>1.5-2 L (matarayla takip)</td><td>★★★☆☆ (1.2 L ortalama)</td><td>Çantada 2. matara, antrenör hatırlatır</td></tr>
+<tr><td>Antrenman sonrası recovery</td><td>30 dk içinde süt+meyve</td><td>★★★★★ (alışkanlık oturmuş)</td><td>Devam — çantada hep yedek</td></tr>
+<tr><td>Şekerli içecek</td><td>Haftada 0-1 kez</td><td>★★★☆☆ (haftada 3 kez kola)</td><td>Sosyal etkinlikte ayran/maden suyu alternatifi</td></tr>
+<tr><td>Uyku saati</td><td>9-10 saat (U12-U14)</td><td>★★★★☆ (8.5 saat ortalama)</td><td>Hafta içi 22:00 ekran kapalı kuralı</td></tr>
+<tr><td>Kahvaltı düzeni</td><td>Her gün, oturarak, 15+ dk</td><td>★★☆☆☆ (3 gün atlandı)</td><td>Gece bir önceki gün hazırlık (yulaf-süt karışımı buzdolabında)</td></tr>
+<tr><td>Mikro besin (kan testi — yıllık)</td><td>Demir, D vit, B12 normal aralıkta</td><td>D vit düşük (kış)</td><td>Pediatrisyen önerisi: günlük 1000 IU D vit, 3 ay</td></tr>
+</tbody>
+</table>
+</div>
+<p class="intro" style="font-size:12px;color:#5b6b80;margin-top:8px"><em>Karne notu:</em> sayısal puan/sıralama yok. Hedef sporcunun kendi geçmişiyle karşılaştırması (gelişim eğrisi). Aile için kaygı dili değil, rehberlik dili.</p>
+
+<h3>Sertifikasyon + Veli Eğitim Süreci (5 Adım)</h3>
+<div class="box">
+  <h4>👨‍⚕️ Akademi Beslenme Programı Akışı</h4>
+  <ol>
+    <li><strong>Ön mülakat (Hafta 1):</strong> diyetisyen + veli + sporcu görüşmesi. Mevcut yeme alışkanlığı, alerji, dini gereksinim, bütçe haritası.</li>
+    <li><strong>Değerlendirme (Hafta 2):</strong> boy-kilo-BMI persentil + 3 günlük yemek günlüğü + tam kan testi (demir, D vit, B12, ferritin).</li>
+    <li><strong>Plan (Hafta 3):</strong> yaş bandına + spor yüküne + bütçeye uygun 4 haftalık örnek menü + alışveriş listesi + tarif rehberi.</li>
+    <li><strong>Deneme (Hafta 4-7):</strong> aile uygular; haftalık WhatsApp check-in (tabak fotoğrafı, soru-cevap).</li>
+    <li><strong>Takip (Aylık):</strong> beslenme karnesi doldurulur; 3 ayda bir lab tekrarı + plan güncelleme.</li>
+  </ol>
+  <h4>📚 Veli Eğitimi (3 modül × 90 dk, online)</h4>
+  <ul>
+    <li><strong>Modül 1:</strong> Çocuk sporcu beslenmesi temeli (makro/mikro/hidrasyon)</li>
+    <li><strong>Modül 2:</strong> Antrenman + maç günü beslenme (timing + recovery)</li>
+    <li><strong>Modül 3:</strong> Yeme bozukluğu işaretleri + ne zaman uzmana başvurulur</li>
+  </ul>
+  <h4>🎓 Antrenör Beslenme Sertifikası (Asgari)</h4>
+  <ul>
+    <li><strong>Seviye 1:</strong> Beslenme okuryazarlığı (8 saatlik kurs) — tüm antrenörler için zorunlu</li>
+    <li><strong>Seviye 2:</strong> Performans beslenmesi temelleri (24 saat) — U14+ antrenörler için</li>
+    <li><strong>Sınır:</strong> antrenör menü yazmaz, takviye önermez. Sadece yönlendirir + alışkanlık koçluğu yapar.</li>
+  </ul>
+</div>
+
+<h3>KVKK + Etik Notlar</h3>
+<div class="box tinted">
+  <ul>
+    <li><strong>Sağlık verisi (özel nitelikli):</strong> kan testi, alerji, BMI, yeme günlüğü → KVKK m.6 kapsamında, açık rıza şart.</li>
+    <li><strong>Veri paylaşımı:</strong> sadece akademi diyetisyeni + pediatrisyen + veli. Antrenör <em>özet bilgi</em> alır (alerji, kısıtlama), detay görmez.</li>
+    <li><strong>Fotoğraf paylaşımı:</strong> tabak/sporcu fotoğrafları sadece akademi içi WhatsApp'ta; sosyal medyada asla.</li>
+    <li><strong>Yeme bozukluğu kırmızı bayrakları:</strong> hızlı kilo değişimi, yemek atlama, "hiçbir şey yemiyorum"/"sürekli yiyorum" söylemi, antrenmandan sonra tuvalete kaçma → derhal pediatrisyen + psikolog.</li>
+    <li><strong>Takviye etiği:</strong> antrenör veya kulüp yöneticisi takviye satışı yapamaz, marka önermez. Çıkar çatışması yasak.</li>
+    <li><strong>Oruç dönemi:</strong> 12 yaş üstü oruç tutmak isteyen sporcular için — sahur'da CHO+protein, iftar'da yavaş besleme + bol sıvı, antrenman saati değişir (genelde iftardan 2 saat sonra).</li>
+  </ul>
+</div>
+
+<p style="margin-top:18px;font-size:11.5px;color:#5b6b80;font-style:italic;text-align:center">⚠️ Bu modül <strong>genel rehberdir</strong>. Bireysel beslenme planı için <strong>uzman diyetisyen + pediatrisyen onayı şarttır</strong>. Akademi bünyesinde bu uzmanlar bulunmuyorsa dış kaynak yönlendirmesi yapılır.</p>
+
+</div>
+
+<!-- Diğer 5 modül (placeholder — sırayla doldurulacak) -->
+<div class="cross-section" id="cross-kaleci">
+  <div class="summary-card">
+    <h2>🥅 Kalecilik</h2>
+    <p style="color:#5b6b80;font-style:italic">Hazırlanıyor — <strong>Modül 2</strong>. U6-U10 / U12-U14 / U16-U18 üç yaş bandında kaleci özel antrenmanları, teknik görselleri, drill kütüphanesi ve karne sistemini içerecek.</p>
+  </div>
+</div>
+<div class="cross-section" id="cross-offseason">
+  <div class="summary-card">
+    <h2>🌴 Sezon Dışı Hazırlık</h2>
+    <p style="color:#5b6b80;font-style:italic">Hazırlanıyor — <strong>Modül 3</strong>. Yaz/kış sezon arası dönemler için yapılandırılmış kondisyon + teknik koruma + dinlenme + yaratıcı oyun planları içerecek.</p>
+  </div>
+</div>
+<div class="cross-section" id="cross-rtp">
+  <div class="summary-card">
+    <h2>🩹 Return to Play (Sakatlık Sonrası Dönüş)</h2>
+    <p style="color:#5b6b80;font-style:italic">Hazırlanıyor — <strong>Modül 4</strong>. Tıbbi protokol + 4 fazlı dönüş akışı + pediatrik notlar + RTP karnesi içerecek.</p>
+  </div>
+</div>
+<div class="cross-section" id="cross-pozisyon">
+  <div class="summary-card">
+    <h2>📍 Pozisyon-Özel Drill'ler</h2>
+    <p style="color:#5b6b80;font-style:italic">Hazırlanıyor — <strong>Modül 5</strong>. U12+ için stoper / yan bek / 6 numara / 8 numara / 10 numara / kanat / forvet pozisyon-özel antrenman setleri içerecek.</p>
+  </div>
+</div>
+<div class="cross-section" id="cross-futsal">
+  <div class="summary-card">
+    <h2>🏟️ Futsal / İç Saha Varyantları</h2>
+    <p style="color:#5b6b80;font-style:italic">Hazırlanıyor — <strong>Modül 6</strong>. Yağmurlu hava + iç saha durumları için mevcut drill'lerin futsal/küçük saha adaptasyonları + futsal'a özel teknik avantajlar içerecek.</p>
+  </div>
+</div>
+
+</section>
+
 </main>
 
 <section class="kayit-section">
@@ -7096,6 +7821,17 @@ tabs.forEach(t=>t.addEventListener('click',()=>{
   t.classList.add('active');
   document.getElementById('sec-'+t.dataset.tab).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+// Çapraz Modüller — alt sekme yönlendirici
+const crossTabs=document.querySelectorAll('.cross-tab');
+const crossSecs=document.querySelectorAll('.cross-section');
+crossTabs.forEach(t=>t.addEventListener('click',()=>{
+  crossTabs.forEach(x=>x.classList.remove('active'));
+  crossSecs.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const target=document.getElementById('cross-'+t.dataset.cross);
+  if(target)target.classList.add('active');
 }));
 
 // Antrenör yaklaşım seçimi (yerel kayıt)
