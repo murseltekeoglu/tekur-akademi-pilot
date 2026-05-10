@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Tekur Akademi — Yazılım Mimarisi Raporu v1.0</title>
+<style>
+@page {
+  size: A4;
+  margin: 18mm 16mm 22mm 16mm;
+  @bottom-center {
+    content: "Tekur Akademi Mimari Raporu v1.0 · Sayfa " counter(page) " / " counter(pages);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 9pt;
+    color: #5b6b80;
+  }
+  @top-right {
+    content: "10 Mayıs 2026";
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 9pt;
+    color: #5b6b80;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Helvetica Neue', 'Arial', system-ui, sans-serif;
+  color: #1a2233;
+  line-height: 1.5;
+  font-size: 10.5pt;
+  margin: 0;
+}
+h1 {
+  font-size: 22pt;
+  color: #0a3d62;
+  margin: 0 0 4mm;
+  border-bottom: 3px solid #0a3d62;
+  padding-bottom: 4mm;
+}
+h2 {
+  font-size: 15pt;
+  color: #0a3d62;
+  margin: 10mm 0 3mm;
+  border-bottom: 1px solid #cde3f5;
+  padding-bottom: 2mm;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 12pt;
+  color: #1e6091;
+  margin: 6mm 0 2mm;
+  page-break-after: avoid;
+}
+h4 {
+  font-size: 11pt;
+  color: #0a3d62;
+  margin: 4mm 0 1.5mm;
+  page-break-after: avoid;
+}
+p { margin: 0 0 2.5mm; }
+ul, ol { margin: 1.5mm 0 3mm; padding-left: 5mm; }
+li { margin: 0.8mm 0; }
+
+.cover {
+  text-align: center;
+  padding: 30mm 0 10mm;
+  page-break-after: always;
+}
+.cover .brand {
+  font-size: 11pt;
+  color: #1e6091;
+  letter-spacing: 4pt;
+  font-weight: 700;
+  margin-bottom: 6mm;
+}
+.cover h1 {
+  font-size: 30pt;
+  border: none;
+  padding: 0;
+  margin: 0 0 6mm;
+}
+.cover .sub {
+  font-size: 14pt;
+  color: #5b6b80;
+  margin: 0 0 16mm;
+}
+.cover .meta {
+  display: inline-block;
+  background: #f0f4f8;
+  border-radius: 6mm;
+  padding: 6mm 10mm;
+  font-size: 10pt;
+  color: #1a2233;
+  text-align: left;
+  line-height: 2;
+}
+.cover .meta strong { color: #0a3d62; display: inline-block; min-width: 30mm; }
+
+.toc {
+  background: #f8fafc;
+  border-left: 4px solid #1e6091;
+  padding: 5mm 6mm;
+  margin: 6mm 0;
+  page-break-inside: avoid;
+}
+.toc h3 { margin-top: 0; color: #0a3d62; }
+.toc ol { margin: 2mm 0; padding-left: 6mm; font-size: 10pt; }
+.toc li { margin: 1mm 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 5mm;
+  font-size: 9pt;
+  page-break-inside: avoid;
+}
+th {
+  background: #0a3d62;
+  color: #fff;
+  padding: 2.5mm 3mm;
+  text-align: left;
+  font-weight: 700;
+  font-size: 9pt;
+}
+td {
+  padding: 2mm 3mm;
+  border-bottom: 1px solid #e3e8ef;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+td strong { color: #0a3d62; }
+
+.box {
+  background: #f8fafc;
+  border: 1px solid #e3e8ef;
+  border-radius: 3mm;
+  padding: 4mm 5mm;
+  margin: 3mm 0 5mm;
+  page-break-inside: avoid;
+}
+.box.tinted { background: #eef5ff; border-color: #cde3f5; }
+.box.warn { background: #fffaeb; border-left: 4px solid #f59e0b; }
+.box.danger { background: #fef2f2; border-left: 4px solid #dc2626; }
+
+.kpi {
+  display: flex;
+  gap: 4mm;
+  margin: 4mm 0;
+}
+.kpi .item {
+  flex: 1;
+  background: linear-gradient(135deg, #0a3d62 0%, #1e6091 100%);
+  color: #fff;
+  border-radius: 3mm;
+  padding: 4mm;
+  text-align: center;
+}
+.kpi .num {
+  font-size: 18pt;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 1mm;
+}
+.kpi .lbl {
+  font-size: 8.5pt;
+  opacity: 0.9;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+}
+
+.diagram {
+  background: #f0f4f8;
+  border: 1px solid #e3e8ef;
+  border-radius: 3mm;
+  padding: 4mm 5mm;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 7.5pt;
+  line-height: 1.45;
+  white-space: pre;
+  margin: 3mm 0 5mm;
+  overflow: hidden;
+  page-break-inside: avoid;
+}
+
+.note {
+  font-size: 9.5pt;
+  color: #5b6b80;
+  font-style: italic;
+  margin: 2mm 0 4mm;
+}
+
+.module-tag {
+  display: inline-block;
+  background: #1e6091;
+  color: #fff;
+  padding: 0.5mm 2.5mm;
+  border-radius: 6mm;
+  font-size: 8pt;
+  font-weight: 700;
+  margin-right: 2mm;
+}
+
+.section-break { page-break-before: always; }
+
+a { color: #1e6091; text-decoration: none; }
+
+footer.endnote {
+  margin-top: 12mm;
+  padding-top: 4mm;
+  border-top: 2px solid #cde3f5;
+  font-size: 9pt;
+  color: #5b6b80;
+  page-break-inside: avoid;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== KAPAK ========== -->
+<section class="cover">
+  <div class="brand">TEKUR BİLİŞİM</div>
+  <h1>Tekur Akademi</h1>
+  <p class="sub">Yazılım Mimarisi Raporu — v1.0</p>
+  <div class="meta">
+    <div><strong>Tarih:</strong> 10 Mayıs 2026</div>
+    <div><strong>Versiyon:</strong> v1.0 (final taslak)</div>
+    <div><strong>İletişim:</strong> mursel@tekur.net</div>
+    <div><strong>Repo:</strong> murseltekeoglu/tekur-akademi-pilot</div>
+    <div><strong>Branch:</strong> claude/bubsession-location-issue-QqOkL</div>
+    <div><strong>Mockup:</strong> index.html · 9.862 satır</div>
+  </div>
+</section>
+
+<!-- ========== İÇİNDEKİLER ========== -->
+<div class="toc">
+  <h3>İçindekiler</h3>
+  <ol>
+    <li>Yönetici Özeti</li>
+    <li>Paydaşlar (Roller)</li>
+    <li>Sistem Mimarisi (High-Level)</li>
+    <li>Veri Modeli (Çekirdek Entiteler)</li>
+    <li>KVKK + Güvenlik Mimarisi</li>
+    <li>Yol Haritası (Faz Bazlı)</li>
+    <li>Ekip + Maliyet Tahmini</li>
+    <li>Riskler + Açık Sorular</li>
+    <li>Mockup Durum Özeti</li>
+  </ol>
+</div>
+
+<!-- ========== 1. ÖZET ========== -->
+<h2>1. Yönetici Özeti</h2>
+<p>Tekur Akademi, <strong>4-18 yaş arası futbol sporcuları için yapılandırılmış antrenman + ölçüm + iletişim platformudur</strong>. Şu an mevcut olan tek dosya (<code>index.html</code>, <strong>9.862 satır</strong>) <strong>içerik referansı / ürün vizyonu mockup'ıdır</strong>; gerçek uygulama henüz inşa edilmemiştir. Bu rapor mockup'tan türetilen sistemin <strong>ölçeklenebilir, KVKK uyumlu, mobil-öncelikli</strong> mimarisini tanımlar.</p>
+
+<h3>İçerik Vizyonu (Mockup'ta Tamamlanmış)</h3>
+<ul>
+  <li>5 yaş grubu antrenman programı (U6-U18) × 11 katman</li>
+  <li>4 alternatif metodoloji (Bozkurt / Aslan / Atilla / Yüce-Ediz)</li>
+  <li>Kayıt + KVKK + sözleşme + sağlık raporu yönetimi (5 adımlı)</li>
+  <li>Antrenör yoklama + puanlama (12 akıllı hata-engelleme)</li>
+  <li>Maç takvimi + Özel Ders Sistemi (sistem önerisi → WhatsApp onay → takvim → sonuç)</li>
+  <li><strong>6 Çapraz Modül:</strong> Sporcu Beslenmesi, Kalecilik, Sezon Dışı Hazırlık, Return to Play, Pozisyon-Özel Drill'ler, Futsal/İç Saha</li>
+</ul>
+
+<div class="kpi">
+  <div class="item"><span class="num">200-500</span><span class="lbl">Sporcu / akademi</span></div>
+  <div class="item"><span class="num">3-4</span><span class="lbl">Ay MVP</span></div>
+  <div class="item"><span class="num">8-11</span><span class="lbl">Ay tam sistem</span></div>
+  <div class="item"><span class="num">~6-9M ₺</span><span class="lbl">Yıl 1 geliştirme</span></div>
+</div>
+
+<!-- ========== 2. PAYDAŞLAR ========== -->
+<h2>2. Paydaşlar (Roller)</h2>
+<table>
+<thead><tr><th>Rol</th><th>Sayı / akademi</th><th>Ana ihtiyaç</th></tr></thead>
+<tbody>
+<tr><td><strong>Veli</strong></td><td>200-500</td><td>Sporcu kaydı, karne görme, ödeme, WhatsApp bildirim, KVKK rıza</td></tr>
+<tr><td><strong>Sporcu</strong> (12+)</td><td>200-500</td><td>Kendi karnesi, programı, beslenme/RTP planı (sınırlı erişim)</td></tr>
+<tr><td><strong>Antrenör</strong></td><td>30-80</td><td>Yoklama, puanlama, drill kütüphanesi, sertifikasyon, çapraz modül</td></tr>
+<tr><td><strong>Uzman</strong></td><td>5-15</td><td>Diyetisyen, fizyoterapist, kaleci antrenörü, kondisyoner, spor psikoloğu, pediatrisyen — sınırlı sporcu setinde detaylı plan</td></tr>
+<tr><td><strong>Akademi yöneticisi</strong></td><td>2-3</td><td>Finans, raporlama, kullanıcı yönetimi, KVKK uyum panosu</td></tr>
+<tr><td><strong>Dış sistem</strong></td><td>—</td><td>TFF, sigorta, sağlık kuruluşu, bankacılık</td></tr>
+</tbody>
+</table>
+
+<!-- ========== 3. SİSTEM MİMARİSİ ========== -->
+<h2 class="section-break">3. Sistem Mimarisi (High-Level)</h2>
+
+<div class="diagram">
+┌─────────────────────────────────────────────────────────────────┐
+│                     CLIENT KATMANI                              │
+├──────────────────┬──────────────────┬──────────────────────────┤
+│  Veli App (iOS,  │  Antrenör App    │  Admin Web Dashboard     │
+│   Android, PWA)  │  (tablet öncel.  │  (Next.js, masaüstü)     │
+│   React Native   │   offline-first) │                          │
+└────────┬─────────┴────────┬─────────┴────────────┬─────────────┘
+         │                  │                      │
+         └──────────────────┴──────────────────────┘
+                            │
+                   ┌────────▼────────┐
+                   │   API Gateway   │  (auth, rate-limit, audit)
+                   │   (NestJS)      │
+                   └────────┬────────┘
+                            │
+        ┌───────────────────┼───────────────────┐
+   ┌────▼────┐         ┌────▼────┐         ┌────▼─────┐
+   │  Core   │         │ Modül   │         │ Entegre  │
+   │ Servis  │         │ Servis  │         │  Servis  │
+   ├─────────┤         ├─────────┤         ├──────────┤
+   │ Kayıt   │         │ Beslenme│         │ WhatsApp │
+   │ Karne   │         │ Kaleci  │         │ TFF      │
+   │ Yoklama │         │ Off-sea │         │ Sigorta  │
+   │ Puanla. │         │ RTP     │         │ Ödeme    │
+   │ Maç     │         │ Pozisyon│         │ SMS/Mail │
+   │ Özel D. │         │ Futsal  │         │ Calendar │
+   └────┬────┘         └────┬────┘         └────┬─────┘
+        └───────────────────┼───────────────────┘
+                            │
+              ┌─────────────┼─────────────┐
+        ┌─────▼─────┐ ┌─────▼─────┐ ┌─────▼─────┐
+        │ Postgres  │ │  Redis    │ │ S3/MinIO  │
+        │ (ana DB)  │ │ (cache,   │ │ (PDF,     │
+        │  TR-host  │ │  session) │ │  görsel)  │
+        └───────────┘ └───────────┘ └───────────┘</div>
+
+<h3>3.1 Frontend</h3>
+<table>
+<thead><tr><th>Bileşen</th><th>Stack</th><th>Notlar</th></tr></thead>
+<tbody>
+<tr><td><strong>Veli App</strong></td><td>React Native + Expo</td><td>iOS + Android, PWA fallback</td></tr>
+<tr><td><strong>Antrenör App</strong></td><td>Aynı kod tabanı</td><td>Tablet öncelikli; offline-first yoklama+puanlama (CRDT)</td></tr>
+<tr><td><strong>Admin Dashboard</strong></td><td>Next.js + Tailwind</td><td>Masaüstü; finans + KVKK uyum panosu</td></tr>
+<tr><td><strong>İçerik Sitesi</strong></td><td>Next.js + Sanity/Strapi CMS</td><td>Mevcut HTML refactor; antrenör eğitim materyali</td></tr>
+</tbody>
+</table>
+
+<h3>3.2 Backend</h3>
+<ul>
+  <li><strong>API:</strong> NestJS (TypeScript). REST + GraphQL hibrit.</li>
+  <li><strong>Auth:</strong> SMS OTP + e-posta + biyometrik. RBAC + ABAC.</li>
+  <li><strong>DB:</strong> PostgreSQL 16 + TimescaleDB (karne zaman serisi). Redis cache.</li>
+  <li><strong>Dosya:</strong> MinIO TR-host (S3 uyumlu).</li>
+  <li><strong>Background jobs:</strong> BullMQ — bildirim, KVKK otomatik silme, karne PDF.</li>
+  <li><strong>Real-time:</strong> Socket.io — yoklama anlık güncelleme.</li>
+</ul>
+
+<h3>3.3 Entegrasyonlar</h3>
+<table>
+<thead><tr><th>Sistem</th><th>Amaç</th><th>Yöntem</th></tr></thead>
+<tbody>
+<tr><td>WhatsApp Business API</td><td>Özel ders, hatırlatma, karne</td><td>Resmi BSP (TR: Twilio/Infobip)</td></tr>
+<tr><td>TFF</td><td>Lisans + maç kaydı</td><td>API (varsa) / manuel CSV</td></tr>
+<tr><td>Sigorta</td><td>Poliçe çıkarma</td><td>Acente entegrasyonu</td></tr>
+<tr><td>Ödeme</td><td>Aidat + özel ders</td><td>iyzico / craftgate (PCI-DSS TR)</td></tr>
+<tr><td>SMS Gateway</td><td>OTP, KVKK rıza</td><td>İletimerkezi / Netgsm</td></tr>
+<tr><td>E-posta</td><td>KVKK başvuru cevap</td><td>TR mail servisi</td></tr>
+<tr><td>Takvim</td><td>Antrenman + maç</td><td>Google Calendar API + iCal</td></tr>
+<tr><td>Harita</td><td>Saha lokasyonu</td><td>Yandex Maps</td></tr>
+<tr><td>Video</td><td>Maç/antrenman analiz (Faz 4+)</td><td>Mux / TR video CDN</td></tr>
+</tbody>
+</table>
+
+<!-- ========== 4. VERİ MODELİ ========== -->
+<h2 class="section-break">4. Veri Modeli (Çekirdek Entiteler)</h2>
+
+<div class="diagram">
+User ──┬── Parent (veli)
+       ├── Coach (antrenör + sertifikasyonlar)
+       ├── Athlete (sporcu — KVKK özel nitelikli ayrı tabloya bağlı)
+       ├── Specialist (diyetisyen, fizyoterapist, pediatrisyen,
+       │              kaleci antrenörü, kondisyoner, spor psikoloğu)
+       └── Admin
+
+Athlete ──┬── HealthRecord (sağlık · ÖZEL NİTELİKLİ · ayrı şifreli alan)
+          ├── KVKKConsent (versiyonlanmış, çekilebilir)
+          ├── Group (yaş grubu × seviye)
+          ├── Position (U12+ pozisyon profili — Modül 5)
+          ├── AttendanceRecord
+          ├── ScoringRecord (antrenör puanlama)
+          ├── KarneEntry (aylık/3 aylık)
+          ├── MatchParticipation
+          ├── SpecialLessonRequest
+          │
+          │  ── ÇAPRAZ MODÜL BAĞLANTILARI ──
+          ├── NutritionPlan (Modül 1)         ← Diyetisyen
+          ├── GoalkeeperProfile (Modül 2)     ← Kaleci antrenörü
+          ├── OffSeasonPlan (Modül 3)         ← Kondisyoner + antrenör
+          ├── InjuryRecord + RTPPlan (Modül 4)← Hekim+fizyo+psikolog
+          ├── PositionProfile (Modül 5)       ← Antrenör + maç analiz
+          └── FutsalKarneEntry (Modül 6)      ← Antrenör (kış sezon)
+
+Group ──┬── Coach[] (1 baş + 0-2 yardımcı)
+        ├── Session ──── Attendance + Scoring
+        ├── TrainingPlan (haftalık + aylık + 12 haftalık)
+        └── ApproachSelection (Bozkurt/Aslan/Atilla/Yüce-Ediz)
+
+Match ──┬── Lineup (Position bazlı)
+        ├── MatchEvents (gol, asist, kart)
+        └── PostMatchScoring
+
+Operasyonel:
+├── MessageLog (WhatsApp/SMS/Mail — KVKK kanıt)
+├── AuditLog (kim, ne zaman, hangi veriye erişti — 5 yıl)
+├── PaymentRecord
+├── DocumentVault (sözleşme, sağlık raporu, kimlik)
+└── Notification (in-app + push)</div>
+
+<p class="note"><strong>6 yeni modülün veri modeli notu:</strong> her modül kendi tablosuna sahip, ancak <code>Athlete.id</code>'ye foreign key. Uzman atama (<code>Specialist ↔ Athlete</code>) izinli ilişki.</p>
+
+<!-- ========== 5. KVKK + GÜVENLİK ========== -->
+<h2 class="section-break">5. KVKK + Güvenlik Mimarisi (Kritik)</h2>
+
+<h3>5.1 Şifreleme</h3>
+<ul>
+  <li><strong>At-rest:</strong> AES-256, ayrı KMS. Özel nitelikli (sağlık + biyometrik) ayrı anahtar.</li>
+  <li><strong>In-transit:</strong> TLS 1.3, HSTS, certificate pinning (mobil).</li>
+  <li><strong>DB:</strong> PostgreSQL Row-Level Security + column-level encryption (sağlık).</li>
+</ul>
+
+<h3>5.2 Erişim Kontrolü</h3>
+<ul>
+  <li>RBAC + ABAC (örn. "Diyetisyen sadece kendisine atanan sporcuları görür").</li>
+  <li>Audit log: her sağlık verisi erişimi → 5 yıl saklanır.</li>
+  <li>2FA zorunlu: tüm uzman + admin.</li>
+</ul>
+
+<h3>5.3 Veri Yaşam Döngüsü</h3>
+<table>
+<thead><tr><th>Veri</th><th>Saklama</th><th>Tetikleyici</th></tr></thead>
+<tbody>
+<tr><td>Üyelik</td><td>Aktif + 5 yıl → anonimleştirme</td><td>Cron aylık</td></tr>
+<tr><td>Sözleşme PDF</td><td>Bitiminden 10 yıl (TBK)</td><td>Cron yıllık</td></tr>
+<tr><td>Sağlık verisi</td><td>Aktif + 2 yıl</td><td>Cron aylık</td></tr>
+<tr><td>Sakatlık kaydı (Modül 4)</td><td>Aktif + 5 yıl (epidemiyolojik takip)</td><td>Cron yıllık</td></tr>
+<tr><td>Beslenme planı (Modül 1)</td><td>Aktif + 1 yıl</td><td>Cron aylık</td></tr>
+<tr><td>Görsel</td><td>Rıza geri çekildiği an</td><td>Webhook anlık</td></tr>
+<tr><td>Mesaj log</td><td>3 yıl</td><td>Cron aylık</td></tr>
+<tr><td>Audit log</td><td>5 yıl</td><td>Cron yıllık</td></tr>
+</tbody>
+</table>
+
+<h3>5.4 KVKK Hak Talep Akışı (Otomatize)</h3>
+<ul>
+  <li>Veli/sporcu mobil app'ten "Verilerimi gör/sil/düzelt" butonu</li>
+  <li>30 gün içinde otomatik cevap (kanun gereği)</li>
+  <li>Talep tipi: bilgi (otomatik PDF) / silme (admin onaylı) / düzeltme (form)</li>
+</ul>
+
+<h3>5.5 Yurt Dışı Aktarımı</h3>
+<div class="box danger">
+  <p style="margin:0"><strong>YOK</strong> → tüm hosting Türkiye'de. Üçüncü parti seçimi TR-host kontrolü ile (örn. SendGrid yerine TR mail servisi).</p>
+</div>
+
+<h3>5.6 Güvenlik Denetimleri</h3>
+<ul>
+  <li>Yıllık penetration test (3. parti)</li>
+  <li>OWASP Top 10 + Mobil OWASP Top 10</li>
+  <li>Bağımlılık tarama (Snyk/Dependabot, sürekli)</li>
+  <li>ISO 27001 hedef (yıl 2)</li>
+</ul>
+
+<!-- ========== 6. YOL HARİTASI ========== -->
+<h2 class="section-break">6. Yol Haritası (Faz Bazlı)</h2>
+
+<h3>Faz 1 — MVP (3-4 ay)</h3>
+<ul>
+  <li>Kayıt + KVKK rıza akışı (5 adım)</li>
+  <li>Veli + Antrenör + Admin auth (SMS OTP)</li>
+  <li>Antrenör yoklama + puanlama (offline-first)</li>
+  <li>Aylık karne (tek yaş grubu pilot, U10)</li>
+  <li>WhatsApp bildirim entegrasyonu</li>
+  <li>Ödeme (aidat — iyzico)</li>
+</ul>
+
+<h3>Faz 2 — Genişleme (2-3 ay)</h3>
+<ul>
+  <li>5 yaş grubu programının tam içerik aktarımı (CMS)</li>
+  <li>Maç sistemi + lineup + post-match puanlama</li>
+  <li>Özel ders sistemi (mockup'taki tam akış)</li>
+  <li><strong>Çapraz Modül 1: Beslenme</strong> — diyetisyen rolü + plan + karne entegrasyonu</li>
+  <li>Sertifikasyon takibi</li>
+</ul>
+
+<h3>Faz 3 — Uzmanlaşma (3-4 ay)</h3>
+<p><span class="module-tag">M2</span><strong>Kalecilik</strong> — kaleci antrenörü rolü + ayrı drill seti + karne</p>
+<p><span class="module-tag">M3</span><strong>Sezon Dışı Hazırlık</strong> — yıllık plan + kondisyoner ekosistemi</p>
+<p><span class="module-tag">M4</span><strong>Return to Play</strong> — sakatlık kayıt + 5 fazlı protokol + concussion özel akış + uzman ekip işbirliği</p>
+<p><span class="module-tag">M5</span><strong>Pozisyon-Özel Drill'ler</strong> — pozisyon profili + maç analizi</p>
+<p><span class="module-tag">M6</span><strong>Futsal/İç Saha</strong> — sezon takvim + hava acil durum akışı + futsal karne</p>
+<ul>
+  <li>TFF entegrasyonu</li>
+  <li>Sigorta entegrasyonu</li>
+  <li>Multi-akademi (white-label) altyapısı</li>
+</ul>
+
+<h3>Faz 4 — Olgunluk (sürekli)</h3>
+<ul>
+  <li>Yapay zeka destekli karne yorumu (LLM ile özet, <strong>ASLA otomatik karar değil — KVKK m.11</strong>)</li>
+  <li>Veli app yapay zeka koçu (sınırlı tavsiye)</li>
+  <li>Pediatrik veri seti üzerinden anonim performans karşılaştırma</li>
+  <li>ISO 27001 sertifikasyonu</li>
+</ul>
+
+<!-- ========== 7. EKİP + MALİYET ========== -->
+<h2 class="section-break">7. Ekip + Maliyet Tahmini</h2>
+
+<h3>Geliştirme (8-11 ay tam sistem)</h3>
+<table>
+<thead><tr><th>Rol</th><th>Adam-Ay</th><th>Tahmini ₺/ay (brüt+SGK)</th></tr></thead>
+<tbody>
+<tr><td>Backend dev (kıdemli)</td><td>11</td><td>80-120k</td></tr>
+<tr><td>Backend dev (mid)</td><td>8</td><td>50-70k</td></tr>
+<tr><td>Mobile dev (RN, kıdemli)</td><td>11</td><td>80-120k</td></tr>
+<tr><td>Web/Admin dev (kıdemli)</td><td>8</td><td>70-100k</td></tr>
+<tr><td>UI/UX designer</td><td>6</td><td>50-80k</td></tr>
+<tr><td>DevOps + QA</td><td>8</td><td>60-90k</td></tr>
+<tr><td>PM + KVKK danışman</td><td>11</td><td>30-60k</td></tr>
+<tr><td><strong>Toplam</strong></td><td colspan="2"><strong>~6-9 milyon ₺</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Operasyonel (Aylık MVP sonrası)</h3>
+<table>
+<thead><tr><th>Kalem</th><th>Aylık Maliyet (₺)</th></tr></thead>
+<tbody>
+<tr><td>Hosting (TR bulut)</td><td>8-15k</td></tr>
+<tr><td>WhatsApp BSP (1000 sporcu)</td><td>5-12k</td></tr>
+<tr><td>SMS gateway</td><td>2-5k</td></tr>
+<tr><td>3. parti servisler (Sentry, monitoring, mail)</td><td>3-6k</td></tr>
+<tr><td>Bakım dev (yarım zaman)</td><td>50-80k</td></tr>
+<tr><td><strong>Toplam aylık op</strong></td><td><strong>70-120k</strong></td></tr>
+</tbody>
+</table>
+
+<!-- ========== 8. RİSKLER ========== -->
+<h2 class="section-break">8. Riskler + Açık Sorular</h2>
+
+<table>
+<thead><tr><th>Risk</th><th>Etki</th><th>Önlem</th></tr></thead>
+<tbody>
+<tr><td>TFF API'sinin gerçek erişimi belirsiz</td><td>Yüksek</td><td>Faz 1'de manuel CSV</td></tr>
+<tr><td>WhatsApp Business onayı 4-8 hafta</td><td>Orta</td><td>Faz 1'e paralel başlat</td></tr>
+<tr><td>Çocuk verileri = özel hassasiyet</td><td>Yüksek</td><td>KVKK danışman ekipte</td></tr>
+<tr><td>Çoklu akademi (white-label) erken tasarım</td><td>Orta</td><td>MVP single-tenant ama tenant_id alanı bırak</td></tr>
+<tr><td>Mobile offline-first karmaşık</td><td>Orta</td><td>CRDT / event sourcing</td></tr>
+<tr><td>Yurt dışı aktarım yasakları</td><td>Yüksek</td><td>Tüm 3. parti TR-host kontrolü</td></tr>
+<tr><td>Çok uzman rol (Modül 4 RTP)</td><td>Orta</td><td>Spor hekimi + fizyo + psikolog ekosistemi</td></tr>
+<tr><td>6 modülün UI yoğunluğu</td><td>Orta</td><td>Mobil app sadeleştirme; web admin tam derin</td></tr>
+</tbody>
+</table>
+
+<h3>Karar Bekleyen Sorular</h3>
+<ol>
+  <li>Hedef ilk lansman: tek akademi (Tekur) mı, çoklu (white-label) mi?</li>
+  <li>Mobil için React Native mi, Flutter mı?</li>
+  <li>Backend dili: TypeScript (NestJS) mi, Python (FastAPI) mı?</li>
+  <li>Hosting: Türk bulut sağlayıcı seçimi (Türk Telekom / Vargonen / Turkcell)?</li>
+  <li>Ödeme sağlayıcı: iyzico mı, craftgate mi?</li>
+  <li>AI/LLM kullanımı (karne yorumu, koçluk) — KVKK özel rıza akışı tasarımı?</li>
+  <li>Uzman ekosistemi (Modül 4): akademi içi mi, dış kaynak mı (sözleşmeli)?</li>
+</ol>
+
+<!-- ========== 9. MOCKUP ========== -->
+<h2 class="section-break">9. Mockup Durum Özeti (10 Mayıs 2026)</h2>
+
+<table>
+<thead><tr><th>Bölüm</th><th>Durum</th><th>~Satır</th></tr></thead>
+<tbody>
+<tr><td>5 Yaş Grubu Programı</td><td>✓ Tam</td><td>5500</td></tr>
+<tr><td>Kayıt + KVKK</td><td>✓ Tam</td><td>270</td></tr>
+<tr><td>Maç Takvimi</td><td>✓ Tam</td><td>230</td></tr>
+<tr><td>Antrenör Puanlama</td><td>✓ Tam</td><td>510</td></tr>
+<tr><td>Özel Ders Sistemi</td><td>✓ Tam</td><td>220</td></tr>
+<tr><td>Kaynaklar</td><td>✓ Tam</td><td>180</td></tr>
+<tr><td><strong>Çapraz Modüller (yeni)</strong></td><td>✓ <strong>6 modül tam</strong></td><td><strong>2590</strong></td></tr>
+<tr><td><strong>TOPLAM</strong></td><td></td><td><strong>9.862</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Son 7 Commit (Bu Oturum)</h3>
+<table>
+<thead><tr><th>Commit</th><th>Açıklama</th><th>+Satır</th></tr></thead>
+<tbody>
+<tr><td><code>81835aa</code></td><td>Çapraz Modüller iskelesi + Modül 1 Beslenme</td><td>+736</td></tr>
+<tr><td><code>7775059</code></td><td>Modül 2 Kalecilik</td><td>+525</td></tr>
+<tr><td><code>8723fd9</code></td><td>Modül 3 Sezon Dışı</td><td>+262</td></tr>
+<tr><td><code>4c742db</code></td><td>Modül 4 Return to Play</td><td>+268</td></tr>
+<tr><td><code>ece1cf1</code></td><td>Modül 5 Pozisyon-Özel</td><td>+500</td></tr>
+<tr><td><code>aab66a5</code></td><td>Modül 6 Futsal/İç Saha</td><td>+314</td></tr>
+</tbody>
+</table>
+
+<footer class="endnote">
+<p><strong>Bu rapor v1.0 final taslaktır.</strong> Bir sonraki versiyonda eklenebilecekler: detaylı API spec (OpenAPI), ER diyagramı, mobil ekran wireframe haritası, KVKK VERBİS başvuru taslağı, sözleşme şablonları, uzman ekosistem işleyiş kılavuzu.</p>
+<p style="margin-top:4mm">© 2026 Tekur Bilişim · İletişim: <strong>mursel@tekur.net</strong></p>
+</footer>
+
+</body>
+</html>
